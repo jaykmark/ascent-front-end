@@ -16,7 +16,7 @@ class Skills extends React.Component {
       <div className="skills-list">
         <h3>HERE YO SKILLS</h3>
         <AddSkill user={this.props.user} handleSubmit={this.props.addSkill} />
-        {this.props.user.skills && this.displaySkills(this.props.user.skills)}
+        {this.props.skills && this.displaySkills(this.props.skills)}
       </div>
     )
   }

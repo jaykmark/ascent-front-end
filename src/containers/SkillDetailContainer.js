@@ -33,7 +33,7 @@ class SkillDetailContainer extends React.Component {
   render() {
     return (
       <>
-        <SkillDetail skillDetail={this.state.skillDetail} editSkill={this.editSkill}/>
+        {this.state.skillDetail && <SkillDetail skillDetail={this.state.skillDetail} editSkill={this.editSkill}/> }
       </>
     )
   }

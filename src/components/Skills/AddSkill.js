@@ -2,17 +2,10 @@ import React from 'react';
 
 class AddSkill extends React.Component {
   state = {
-    user: '',
+    user: this.props.user._id,
     name: '',
     totalMinutes: '',
   };
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.user !== this.props.user)
-    this.setState({
-      user: this.props.user._id,
-    })
-  }
 
   handleChange = (event) => {
     this.setState({

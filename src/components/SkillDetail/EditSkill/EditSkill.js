@@ -2,23 +2,12 @@ import React from 'react';
 
 class EditSkill extends React.Component {
   state = {
-    name: '',
-    totalMinutes: '',
-    description: '',
-    notes: '',
+    skillId: this.props.skillDetail._id,
+    name: this.props.skillDetail.name,
+    totalMinutes: this.props.skillDetail.totalMinutes,
+    description: this.props.skillDetail.description,
+    notes: this.props.skillDetail.notes,
   };
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.skillDetail !== this.props.skillDetail) {
-      this.setState({
-        id: this.props.skillDetail._id,
-        name: this.props.skillDetail.name,
-        totalMinutes: this.props.skillDetail.totalMinutes,
-        description: this.props.skillDetail.description,
-        notes: this.props.skillDetail.notes,
-      })
-    }
-  }
 
   handleChange = (event) => {
     this.setState({

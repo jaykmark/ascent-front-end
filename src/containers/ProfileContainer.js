@@ -25,14 +25,16 @@ class ProfileContainer extends React.Component {
       .catch(err => console.log(err));
   };
 
-  addSkill(event, createdPost) {
+  addSkill = (event, createdPost) => {
     event.preventDefault();
-    axios.post(`${process.env.REACT_APP_API_URL}/skills`, createdPost, { withCredentials: true }) 
+    // API POST Request - Create a skill and add to user's model
+    axios.post(`${process.env.REACT_APP_API_URL}/skills`, createdPost) 
       .then(res => {
-      console.log(res.data.data);
-      // this.setState({
-      //   skills: [...this.state.skills, res.data.data]
-      // })
+      // console.log(res.data.data);
+      this.setState({
+        skills: [...this.state.skills].concat(res.data.data),
+      })
+      console.log(this.state.skills)
     })
       .catch(err => console.log(err));
   }
@@ -41,7 +43,7 @@ class ProfileContainer extends React.Component {
     return (
       <>
       <h2>HERE'S YOUR PROFILE, {this.state.user.username}</h2>
-      <Skills user={this.state.user} addSkill={this.addSkill} />
+      {this.state.user._id && <Skills user={this.state.user} skills={this.state.user.skills} addSkill={this.addSkill} /> }
       </>
     )
   }
