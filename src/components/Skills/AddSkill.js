@@ -2,7 +2,7 @@ import React from 'react';
 
 class AddSkill extends React.Component {
   state = {
-    user: this.props.user._id,
+    user: '',
     name: '',
     totalMinutes: '',
   };
@@ -59,7 +59,7 @@ class AddSkill extends React.Component {
                     <input
                       onChange={this.handleChange}
                       className="form-control form-control-lg"
-                      type="text"
+                      type="number"
                       id="totalMinutes"
                       name="totalMinutes"
                       value={this.state.totalMinutes}

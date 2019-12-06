@@ -8,7 +8,7 @@ function SkillDetail(props) {
       <div>
         <h3>{name}: {totalMinutes} mins</h3>
       </div>
-      <EditSkill skillDetail={props.skillDetail} />
+      <EditSkill skillDetail={props.skillDetail} editSkill={props.editSkill}/>
       <p>Description: {description}</p>
       <p>Notes: {notes}</p>
     </>
