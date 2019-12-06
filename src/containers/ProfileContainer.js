@@ -1,7 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 
-import Skills from '../components/Skills/Skills';
+import Skills from '../components/Profile/Skills/Skills';
+import Goals from '../components/Profile/Goals/Goals';
+
+import '../components/Profile/Profile.css';
 
 class ProfileContainer extends React.Component {
   state = {
@@ -41,8 +44,11 @@ class ProfileContainer extends React.Component {
   render() {
     return (
       <>
-      <h2>HERE'S YOUR PROFILE, {this.state.user.username}</h2>
-      {this.state.user._id && <Skills user={this.state.user} skills={this.state.skills} addSkill={this.addSkill} /> }
+        <h2>GIT GUD, {this.state.user.username}</h2>
+        <div className="profileBody">
+          {this.state.user._id && <Skills user={this.state.user} skills={this.state.skills} addSkill={this.addSkill} /> }
+          {this.state.user._id && <Goals /> }
+        </div>
       </>
     )
   }
