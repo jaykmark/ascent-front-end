@@ -1,5 +1,6 @@
 import React from 'react';
 import Skill from './Skill/Skill';
+import AddSkill from './AddSkill';
 
 class Skills extends React.Component {
   displaySkills(skills) {
@@ -14,6 +15,7 @@ class Skills extends React.Component {
     return(
       <div className="skills-list">
         <h3>HERE YO SKILLS</h3>
+        <AddSkill user={this.props.user} handleSubmit={this.props.addSkill} />
         {this.props.user.skills && this.displaySkills(this.props.user.skills)}
       </div>
     )
