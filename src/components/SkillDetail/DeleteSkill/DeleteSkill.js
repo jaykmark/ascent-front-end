@@ -1,4 +1,5 @@
 import React from 'react';
+import ConfirmDeleteSkill from './ConfirmDeleteSkill/ConfirmDeleteSkill';
 
 const DeleteSkill = props => {
   return (
@@ -22,7 +23,7 @@ const DeleteSkill = props => {
       <div className="modal-content">
         <div className="modal-header">
           <h5 className="modal-title" id="deletePostModalLabel">
-          Are you sure you want to delete "{props.skill.name}"?
+          Are you sure you want to delete "{props.skillDetail.name}"?
           </h5>
           <button
             type="button"
@@ -34,12 +35,12 @@ const DeleteSkill = props => {
           </button>
         </div>
         <div className="modal-body">
-          {/* {props.postData && (
-            <ConfirmDelete
-              deletePost={props.deletePost}
-              postData={props.postData}
+          {props.skillDetail && (
+            <ConfirmDeleteSkill
+              deleteSkill={props.deleteSkill}
+              skillDetail={props.skillDetail}
             />
-          )} */}
+          )}
         </div>
       </div>
     </div>

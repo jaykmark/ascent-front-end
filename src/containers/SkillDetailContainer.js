@@ -19,7 +19,7 @@ class SkillDetailContainer extends React.Component {
   }
 
   editSkill = (event, editedSkill) => {
-    const skillId = editedSkill.id
+    const skillId = editedSkill.id;
     event.preventDefault();
     axios.put(`${process.env.REACT_APP_API_URL}/skills/${skillId}`, editedSkill)
       .then(res => {
@@ -30,10 +30,17 @@ class SkillDetailContainer extends React.Component {
       .catch(err => console.log(err));
   };
 
+  deleteSkill = (event, deletedSkill) => {
+    event.preventDefault();
+    axios.delete(`${process.env.REACT_APP_API_URL}/skills/${deletedSkill}`)
+      .then(res => this.props.history.push('/profile'))
+      .catch(err => console.log(err))
+  };
+
   render() {
     return (
       <>
-        {this.state.skillDetail && <SkillDetail skillDetail={this.state.skillDetail} editSkill={this.editSkill}/> }
+        {this.state.skillDetail && <SkillDetail skillDetail={this.state.skillDetail} editSkill={this.editSkill}deleteSkill={this.deleteSkill} /> }
       </>
     )
   }

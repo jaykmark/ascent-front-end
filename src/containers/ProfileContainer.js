@@ -30,7 +30,6 @@ class ProfileContainer extends React.Component {
     // API POST Request - Create a skill and add to user's model
     axios.post(`${process.env.REACT_APP_API_URL}/skills`, createdPost) 
       .then(res => {
-      // console.log(res.data.data);
       this.setState({
         skills: [...this.state.skills].concat(res.data.data),
       })
@@ -43,7 +42,7 @@ class ProfileContainer extends React.Component {
     return (
       <>
       <h2>HERE'S YOUR PROFILE, {this.state.user.username}</h2>
-      {this.state.user._id && <Skills user={this.state.user} skills={this.state.user.skills} addSkill={this.addSkill} /> }
+      {this.state.user._id && <Skills user={this.state.user} skills={this.state.skills} addSkill={this.addSkill} /> }
       </>
     )
   }
