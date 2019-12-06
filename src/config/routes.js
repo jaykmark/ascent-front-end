@@ -1,15 +1,19 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 
 import Landing from '../components/Landing/Landing';
+import Login from '../components/Auth/Login';
+import ProfileContainer from '../containers/ProfileContainer';
 
 
-function Routes(props) {
+function Routes({ setCurrentUser, history }) {
   return (
     <Switch>
       <Route exact path="/" component={Landing} />
+      <Route path="/login" render={() => <Login history={history} setCurrentUser={setCurrentUser} />} />
+      <Route path="/profile" component={ProfileContainer} />
     </Switch>
   )
 };
 
-export default Routes;
+export default withRouter(Routes);
