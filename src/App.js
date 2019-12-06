@@ -21,11 +21,23 @@ class App extends React.Component {
     localStorage.setItem('uid', token);
   }
 
+  logout = () => {
+    // Remove JWT from local storage.
+    localStorage.removeItem('uid');
+    // Set State of Current User to null.
+    this.setState({
+      currentUser: null,
+    });
+    this.props.history.push('/login');
+  }
+
   render() {
     return (
       <div className="App">
-        <Navbar currentUser={this.state.currentUser} />
-        <Routes currentUser={this.state.currentUser} setCurrentUser={this.setCurrentUser} />
+        <Navbar currentUser={this.state.currentUser} logout={this.logout} />
+        <div className="container">
+          <Routes currentUser={this.state.currentUser} setCurrentUser={this.setCurrentUser} />
+        </div>
       </div>
     );
   }

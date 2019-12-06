@@ -18,7 +18,7 @@ class SkillDetailContainer extends React.Component {
       .catch(err => console.log(err))
   }
 
-  editSkill(event, editedSkill) {
+  editSkill = (event, editedSkill) => {
     const skillId = editedSkill.id
     event.preventDefault();
     axios.put(`${process.env.REACT_APP_API_URL}/skills/${skillId}`, editedSkill)
@@ -28,7 +28,7 @@ class SkillDetailContainer extends React.Component {
         })
       })
       .catch(err => console.log(err));
-  }
+  };
 
   render() {
     return (

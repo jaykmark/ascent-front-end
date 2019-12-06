@@ -64,8 +64,6 @@ class AddSkill extends React.Component {
                       name="totalMinutes"
                       value={this.state.totalMinutes}
                       required
-                      minLength="1"
-                      maxLength="200"
                     />
                   </div>
                   <button data-dismiss="modal" onClick={(event) => this.props.handleSubmit(event, this.state)} className="btn btn-primary float-right" type="submit">

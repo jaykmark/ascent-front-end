@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 class Navbar extends React.Component {
   render() {
@@ -18,6 +19,9 @@ class Navbar extends React.Component {
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/login">Login</a>
+              </li>
+              <li className="nav-item">
+                <span className="nav-link" href="" onClick={this.props.logout}>Logout</span>
               </li>
               {/* <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
