@@ -10,7 +10,7 @@ function Routes({ setCurrentUser, history }) {
   return (
     <Switch>
       <Route exact path="/" component={Landing} />
-      <Route path="/login" render={() => <Login history={history} setCurrentUser={setCurrentUser} />} />
+      <Route path="/login" render={() => <Login setCurrentUser={setCurrentUser} history={history} />} />
       <Route path="/profile" component={ProfileContainer} />
     </Switch>
   )

@@ -19,12 +19,14 @@ class Login extends React.Component {
     const user = this.state;
     axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, user)
       .then(res => {
-        console.log(res);
+        console.log(res.data);
         this.props.setCurrentUser(res.data.signedJwt);
         this.props.history.push('/profile');
       })
       .catch(err => {
-        this.setState({ error: err.response.data.message });
+        this.setState({ 
+          error: err.response.data.message 
+        });
       });
   };
 
