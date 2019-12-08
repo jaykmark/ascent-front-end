@@ -2,8 +2,22 @@ import React from 'react';
 
 class AddGoal extends React.Component {
   state = {
-
+    skill: this.props.skills[0]._id,
+    duration: '',
+    frequency: 'Daily',
   };
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  // handleDropDown = (event) => {
+  //   this.setState({
+  //     [event.target.name]
+  //   })
+  // }
 
   render() {
     return (
@@ -26,32 +40,34 @@ class AddGoal extends React.Component {
                 <div className="modal-body">
                   <form>
                     <div className="form-group">
-                      <label htmlFor="name">Name</label>
-                      <input
-                        onChange={this.handleChange}
-                        className="form-control form-control-lg"
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={this.state.name}
-                        required
-                        minLength="1"
-                        maxLength="200"
-                      />
+                      <label htmlFor="selectedSkill">Skill</label>
+                      <select className="form-control" id="selectedSkill" name="skill" onChange={this.handleChange} value={this.state.skill}>
+                        {this.props.skills.map(skill => {
+                          return <option value={skill._id} key={skill._id}>{skill.name}</option>
+                        })}
+                      </select>
                     </div>
                     <div className="form-group">
-                      <label htmlFor="totalMinutes">Total Minutes</label>
+                      <label htmlFor="duration">Duration (min)</label>
                       <input
                         onChange={this.handleChange}
                         className="form-control form-control-lg"
                         type="number"
-                        id="totalMinutes"
-                        name="totalMinutes"
-                        value={this.state.totalMinutes}
+                        id="duration"
+                        name="duration"
+                        value={this.state.duration}
                         required
                       />
                     </div>
-                    <button data-dismiss="modal" onClick={(event) => this.props.handleSubmit(event, this.state)} className="btn btn-primary float-right" type="submit">
+                    <div className="form-group">
+                      <label htmlFor="goalFrequency">Frequency</label>
+                      <select name="frequency" value={this.state.frequency} className="form-control" id="goalFrequency" onChange={this.handleChange}>
+                        <option>Daily</option>
+                        <option>Weekly</option>
+                        <option>Monthly</option>
+                      </select>
+                    </div>
+                    <button data-dismiss="modal" onClick={(event) => this.props.addGoal(event, this.state)} className="btn btn-primary float-right" type="submit">
                       Add Goal
                     </button>
                   </form>

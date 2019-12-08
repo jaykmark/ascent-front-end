@@ -59,7 +59,7 @@ class AddSkill extends React.Component {
                       required
                     />
                   </div>
-                  <button data-dismiss="modal" onClick={(event) => this.props.handleSubmit(event, this.state)} className="btn btn-primary float-right" type="submit">
+                  <button data-dismiss="modal" onClick={(event) => this.props.addSkill(event, this.state)} className="btn btn-primary float-right" type="submit">
                     Add Skill
                   </button>
                 </form>
