@@ -33,7 +33,7 @@ class ProfileContainer extends React.Component {
   grabGoals = (skills) => {
     const goalsArr = [];
     skills.forEach(skill => {
-      goalsArr.push(skill.goals)
+      if (skill.goals) goalsArr.push(skill.goals)
     })
     return goalsArr;
   }
@@ -44,7 +44,7 @@ class ProfileContainer extends React.Component {
     axios.post(`${process.env.REACT_APP_API_URL}/skills`, createdSkill) 
       .then(res => {
       this.setState({
-        skills: [...this.state.skills].concat(res.data.data),
+        skills: [...this.state.skills, res.data.data],
       })
       console.log(this.state.skills)
     })
@@ -60,7 +60,7 @@ class ProfileContainer extends React.Component {
           if (goal.skill._id !== res.data.data.skill) return goal;
         })
         this.setState({
-          goals: [...filteredGoals, res.data.data]
+          goals: [...filteredGoals, res.data.data],
         })
       })
       .catch(err => console.log(err));
@@ -74,7 +74,7 @@ class ProfileContainer extends React.Component {
           if (skill._id !== res.data.data._id) return skill;
         })
         this.setState({
-          skills: [...filteredSkills, res.data.data]
+          skills: [...filteredSkills, res.data.data],
         })
       })
       .catch(err => console.log(err))
@@ -89,7 +89,21 @@ class ProfileContainer extends React.Component {
           if (goal._id !== res.data.data._id) return goal;
         })
         this.setState({
-          goals: [...filteredGoals, res.data.data]
+          goals: [...filteredGoals, res.data.data],
+        })
+      })
+      .catch(err => console.log(err))
+  };
+
+  deleteGoal = (event, deletedGoal) => {
+    event.preventDefault();
+    axios.delete(`${process.env.REACT_APP_API_URL}/goals/${deletedGoal}`, deletedGoal)
+      .then(res => {
+        const filteredGoals = this.state.goals.filter(goal => {
+          if (goal._id !== res.data.data._id) return goal;
+        })
+        this.setState({
+          goals: [...filteredGoals, res.data.data],
         })
       })
       .catch(err => console.log(err))
@@ -101,7 +115,7 @@ class ProfileContainer extends React.Component {
         <h2>GIT GUD, {this.state.user.username}</h2>
         <div className="profileBody">
           {this.state.user._id && <Skills user={this.state.user} skills={this.state.skills} addSkill={this.addSkill} /> }
-          {this.state.user._id && <Goals user={this.state.user} skills={this.state.skills} goals={this.state.goals} addGoal={this.addGoal} completeGoal={this.completeGoal} editGoal={this.editGoal} /> }
+          {this.state.user._id && <Goals user={this.state.user} skills={this.state.skills} goals={this.state.goals} addGoal={this.addGoal} completeGoal={this.completeGoal} editGoal={this.editGoal} deleteGoal={this.deleteGoal} /> }
         </div>
       </>
     )

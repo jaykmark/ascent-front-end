@@ -25,7 +25,7 @@ class EditGoal extends React.Component {
               <div className="modal-dialog" role="document">
                 <div className="modal-content">
                   <div className="modal-header">
-                    <h5 className="modal-title" id="exampleModalLabel">Edit Goal for {this.props.goalData}</h5>
+                    <h5 className="modal-title" id="exampleModalLabel">Edit Goal for {this.props.goalDetail.skill.name}</h5>
                   <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                   </button>
@@ -56,6 +56,7 @@ class EditGoal extends React.Component {
                     <button data-dismiss="modal" onClick={(event) => this.props.editGoal(event, this.state)} className="btn btn-primary float-right" type="submit">
                       Edit Goal
                     </button>
+                    <button data-dismiss="modal" onClick={(event) => this.props.deleteGoal(event, this.props.goalDetail._id)} className="btn btn-primary float-right" type="submit">Remove Goal</button>
                   </form>
                 </div>
               </div>

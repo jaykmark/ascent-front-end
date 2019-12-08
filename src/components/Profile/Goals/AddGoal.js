@@ -13,12 +13,6 @@ class AddGoal extends React.Component {
     })
   }
 
-  // handleDropDown = (event) => {
-  //   this.setState({
-  //     [event.target.name]
-  //   })
-  // }
-
   render() {
     return (
       <>

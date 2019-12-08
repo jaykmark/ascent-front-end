@@ -33,7 +33,7 @@ class SkillDetailContainer extends React.Component {
   deleteSkill = (event, deletedSkill) => {
     event.preventDefault();
     axios.delete(`${process.env.REACT_APP_API_URL}/skills/${deletedSkill}`)
-      .then(res => this.props.history.push('/profile'))
+      .then(this.props.history.push('/profile'))
       .catch(err => console.log(err))
   };
 

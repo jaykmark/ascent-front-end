@@ -14,7 +14,7 @@ const Goal = (props) => {
       {props.goalDetail.skill.name} {props.goalDetail.duration} mins 
       <button className="btn btn-primary" onClick={() => props.completeGoal(completedGoal)}>COMPLETE</button>
       <div className="goalButtons">
-        <EditGoal goalDetail={props.goalDetail} editGoal={props.editGoal} />
+        <EditGoal goalDetail={props.goalDetail} editGoal={props.editGoal} deleteGoal={props.deleteGoal} />
       </div>
     </div>
   )
