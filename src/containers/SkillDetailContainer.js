@@ -18,6 +18,18 @@ class SkillDetailContainer extends React.Component {
       .catch(err => console.log(err))
   }
 
+  logTime = (event, logTime) => {
+    event.preventDefault();
+    // API POST Request - Create a LogTime and add to minutes Skill's Model
+    axios.post(`${process.env.REACT_APP_API_URL}/logtimes`, logTime)
+      .then(res => {
+        this.setState({
+          skillDetail: res.data.data,
+        })
+      })
+      .catch(err => console.log(err))
+  };
+
   editSkill = (event, editedSkill) => {
     const skillId = editedSkill.id;
     event.preventDefault();
@@ -40,7 +52,7 @@ class SkillDetailContainer extends React.Component {
   render() {
     return (
       <>
-        {this.state.skillDetail && <SkillDetail skillDetail={this.state.skillDetail} editSkill={this.editSkill}deleteSkill={this.deleteSkill} /> }
+        {this.state.skillDetail && <SkillDetail skillDetail={this.state.skillDetail} logTime={this.logTime} editSkill={this.editSkill}deleteSkill={this.deleteSkill} /> }
       </>
     )
   }
