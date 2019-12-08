@@ -7,21 +7,21 @@ class Goals extends React.Component {
   displayDailyGoals = (goals) => {
     return goals.map(goal => {
       if (goal.frequency === "Daily")
-        return <Goal key={goal._id} goalDetail={goal} completeGoal={this.props.completeGoal} editGoal={this.props.editGoal} deleteGoal={this.props.deleteGoal} />
+        return <Goal key={goal._id} goalDetail={goal} logTime={this.props.logTime} editGoal={this.props.editGoal} deleteGoal={this.props.deleteGoal} />
     })
   };
 
   displayWeeklyGoals = (goals) => {
     return goals.map(goal => {
       if (goal.frequency === "Weekly")
-        return <Goal key={goal._id} goalDetail={goal} completeGoal={this.props.completeGoal} editGoal={this.props.editGoal} deleteGoal={this.props.deleteGoal} />
+        return <Goal key={goal._id} goalDetail={goal} logTime={this.props.logTime} editGoal={this.props.editGoal} deleteGoal={this.props.deleteGoal} />
     })
   };
 
   displayMonthlyGoals = (goals) => {
     return goals.map(goal => {
       if (goal.frequency === "Monthly")
-        return <Goal key={goal._id} goalDetail={goal} completeGoal={this.props.completeGoal} editGoal={this.props.editGoal} deleteGoal={this.props.deleteGoal} />
+        return <Goal key={goal._id} goalDetail={goal} logTime={this.props.logTime} editGoal={this.props.editGoal} deleteGoal={this.props.deleteGoal} />
     })
   };
 

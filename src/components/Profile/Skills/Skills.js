@@ -7,7 +7,7 @@ class Skills extends React.Component {
   displaySkills(skills) {
     return skills.map(skill => {
       return (
-        <Skill key={skill._id} skillData={skill} />
+        <Skill key={skill._id} skillDetail={skill} logTime={this.props.logTime}/>
       )
     })
   }

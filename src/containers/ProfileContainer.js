@@ -66,9 +66,10 @@ class ProfileContainer extends React.Component {
       .catch(err => console.log(err));
   };
 
-  completeGoal = (completedGoal) => {
+  logTime = (event, logTime) => {
+    event.preventDefault();
     // API POST Request - Create a LogTime and add to minutes Skill's Model
-    axios.post(`${process.env.REACT_APP_API_URL}/logtimes`, completedGoal)
+    axios.post(`${process.env.REACT_APP_API_URL}/logtimes`, logTime)
       .then(res => {
         const filteredSkills = this.state.skills.filter(skill => {
           if (skill._id !== res.data.data._id) return skill;
@@ -114,8 +115,8 @@ class ProfileContainer extends React.Component {
       <>
         <h2>GIT GUD, {this.state.user.username}</h2>
         <div className="profileBody">
-          {this.state.user._id && <Skills user={this.state.user} skills={this.state.skills} addSkill={this.addSkill} /> }
-          {this.state.user._id && <Goals user={this.state.user} skills={this.state.skills} goals={this.state.goals} addGoal={this.addGoal} completeGoal={this.completeGoal} editGoal={this.editGoal} deleteGoal={this.deleteGoal} /> }
+          {this.state.user._id && <Skills user={this.state.user} skills={this.state.skills} addSkill={this.addSkill} logTime={this.logTime} /> }
+          {this.state.user._id && <Goals user={this.state.user} skills={this.state.skills} goals={this.state.goals} addGoal={this.addGoal} logTime={this.logTime} editGoal={this.editGoal} deleteGoal={this.deleteGoal} /> }
         </div>
       </>
     )

@@ -3,7 +3,7 @@ import EditGoal from './EditGoal/EditGoal';
 import './Goal.css';
 
 const Goal = (props) => {
-  const completedGoal = {
+  const logTime = {
     skill: props.goalDetail.skill._id,
     minutes: props.goalDetail.duration,
     date: Date.now,
@@ -12,7 +12,7 @@ const Goal = (props) => {
   return (
     <div className="goal">
       {props.goalDetail.skill.name} {props.goalDetail.duration} mins 
-      <button className="btn btn-primary" onClick={() => props.completeGoal(completedGoal)}>COMPLETE</button>
+      <button className="btn btn-primary" onClick={() => props.logTime(logTime)}>COMPLETE</button>
       <div className="goalButtons">
         <EditGoal goalDetail={props.goalDetail} editGoal={props.editGoal} deleteGoal={props.deleteGoal} />
       </div>
