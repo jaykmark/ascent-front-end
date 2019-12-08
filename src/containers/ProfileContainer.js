@@ -20,7 +20,6 @@ class ProfileContainer extends React.Component {
     }})
       .then(res => {
         const goals = this.grabGoals(res.data.data.skills);
-        console.log(goals);
         this.setState({
           user: res.data.data,
           skills: res.data.data.skills,
@@ -61,15 +60,13 @@ class ProfileContainer extends React.Component {
           if (goal.skill._id !== res.data.data.skill) return goal;
         })
         this.setState({
-          goals: filteredGoals.concat(res.data.data),
+          goals: [...filteredGoals, res.data.data]
         })
       })
       .catch(err => console.log(err));
   };
 
-  completeGoal = (event, completedGoal) => {
-    event.preventDefault();
-    console.log(completedGoal)
+  completeGoal = (completedGoal) => {
     // API POST Request - Create a LogTime and add to minutes Skill's Model
     axios.post(`${process.env.REACT_APP_API_URL}/logtimes`, completedGoal)
       .then(res => {
@@ -82,6 +79,21 @@ class ProfileContainer extends React.Component {
       })
       .catch(err => console.log(err))
   };
+
+  editGoal = (event, editedGoal) => {
+    event.preventDefault();
+    // API PUT Request - Update a Goal by ID
+    axios.put(`${process.env.REACT_APP_API_URL}/goals/${editedGoal.goal}`, editedGoal)
+      .then(res => {
+        const filteredGoals = this.state.goals.filter(goal => {
+          if (goal._id !== res.data.data._id) return goal;
+        })
+        this.setState({
+          goals: [...filteredGoals, res.data.data]
+        })
+      })
+      .catch(err => console.log(err))
+  };
   
   render() {
     return (
@@ -89,7 +101,7 @@ class ProfileContainer extends React.Component {
         <h2>GIT GUD, {this.state.user.username}</h2>
         <div className="profileBody">
           {this.state.user._id && <Skills user={this.state.user} skills={this.state.skills} addSkill={this.addSkill} /> }
-          {this.state.user._id && <Goals user={this.state.user} skills={this.state.skills} goals={this.state.goals} addGoal={this.addGoal} completeGoal={this.completeGoal} /> }
+          {this.state.user._id && <Goals user={this.state.user} skills={this.state.skills} goals={this.state.goals} addGoal={this.addGoal} completeGoal={this.completeGoal} editGoal={this.editGoal} /> }
         </div>
       </>
     )

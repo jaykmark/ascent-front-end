@@ -1,18 +1,19 @@
 import React from 'react';
+import EditGoal from './EditGoal/EditGoal';
 
 const Goal = (props) => {
   const completedGoal = {
-    skill: props.goalData.skill._id,
-    minutes: props.goalData.duration,
+    skill: props.goalDetail.skill._id,
+    minutes: props.goalDetail.duration,
     date: Date.now,
   }
 
   return (
     <div className="goal">
-      {props.goalData.skill.name} {props.goalData.duration} mins 
-      <button onClick={(event) => props.completeGoal(event, completedGoal)}>COMPLETE</button>
+      {props.goalDetail.skill.name} {props.goalDetail.duration} mins 
+      <button onClick={() => props.completeGoal(completedGoal)}>COMPLETE</button>
       <div className="goalButtons">
-        <button>EDIT</button>
+        <EditGoal goalDetail={props.goalDetail} editGoal={props.editGoal} />
         <button>DELETE</button>
       </div>
     </div>
