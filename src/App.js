@@ -1,13 +1,46 @@
+// External Modules
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
+// Internal Modules
+import Navbar from './components/Navbar/Navbar';
+import Routes from './config/Routes';
+
+// CSS
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
+class App extends React.Component {
+  state = {
+    // Set current user from local storage token
+    currentUser: localStorage.getItem('uid'),
+  };
 
-    </div>
-  );
+  setCurrentUser = (token) => {
+    // Set user token as the current user
+    this.setState({ currentUser: token });
+    localStorage.setItem('uid', token);
+  }
+
+  logout = () => {
+    // Remove JWT from local storage.
+    localStorage.removeItem('uid');
+    // Set State of Current User to null.
+    this.setState({
+      currentUser: null,
+    });
+    this.props.history.push('/login');
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Navbar currentUser={this.state.currentUser} logout={this.logout} />
+        <div className="container">
+          <Routes currentUser={this.state.currentUser} setCurrentUser={this.setCurrentUser} />
+        </div>
+      </div>
+    );
+  }
 }
 
-export default App;
+export default withRouter(App);
