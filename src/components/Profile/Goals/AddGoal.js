@@ -23,19 +23,18 @@ class AddGoal extends React.Component {
     return (
       <>
         <div className="col">
-            <button className="nav-item nav-link btn-primary btn-sm" type="button"
-            id="register" data-toggle="modal" data-target="#addGoal">Add Goal</button>
-          </div>
-          <div className="container">
+          <button className="nav-item nav-link btn-primary btn-sm" type="button"
+          id="register" data-toggle="modal" data-target="#addGoal">Add Goal</button>
+        </div>
             <div className="modal fade" id="addGoal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div className="modal-dialog" role="document">
                 <div className="modal-content">
                   <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalLabel">Add Goal</h5>
-                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
+                    <h5 className="modal-title" id="exampleModalLabel">Add Goal</h5>
+                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
                 
                 <div className="modal-body">
                   <form>
@@ -74,7 +73,6 @@ class AddGoal extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </>
     )

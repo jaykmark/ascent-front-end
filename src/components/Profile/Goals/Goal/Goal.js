@@ -1,5 +1,6 @@
 import React from 'react';
 import EditGoal from './EditGoal/EditGoal';
+import './Goal.css';
 
 const Goal = (props) => {
   const completedGoal = {
@@ -11,10 +12,9 @@ const Goal = (props) => {
   return (
     <div className="goal">
       {props.goalDetail.skill.name} {props.goalDetail.duration} mins 
-      <button onClick={() => props.completeGoal(completedGoal)}>COMPLETE</button>
+      <button className="btn btn-primary" onClick={() => props.completeGoal(completedGoal)}>COMPLETE</button>
       <div className="goalButtons">
         <EditGoal goalDetail={props.goalDetail} editGoal={props.editGoal} />
-        <button>DELETE</button>
       </div>
     </div>
   )
