@@ -25,17 +25,18 @@ class Register extends React.Component {
       password: this.state.password,
     }
     axios.post(`${process.env.REACT_APP_API_URL}/auth/register`, newUser)
-      .then(res => console.log(res))
-      .catch(err => {
-        this.setState({ errors: err.response.data.errors });
-      })
-      // After registering, API POST Request to Login
-      .then(axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, user)
+      .then(res => {
+        // After registering, API POST Request to Login
+        return axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, user)
         .then(res => {
           this.props.setCurrentUser(res.data.signedJwt);
           this.props.history.push('/profile')
           })
-        .catch(err => console.log(err)))
+        .catch(err => console.log(err))
+      })
+      .catch(err => {
+        this.setState({ errors: err.response.data.errors });
+      })
   };
 
   render() {
