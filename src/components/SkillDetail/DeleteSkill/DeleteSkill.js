@@ -6,7 +6,7 @@ const DeleteSkill = props => {
     <>
     <button 
       type="button"
-      className="btn btn-success btn-sm post-delete-button float-right justify-content-end"
+      className="btn btn-outline-danger btn-sm post-delete-button float-right justify-content-end"
       data-toggle="modal"
       data-target="#deletePostModal">
           DELETE SKILL

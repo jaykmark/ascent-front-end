@@ -18,16 +18,11 @@ class Register extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    // console.log('Register Submit - ', this.state);
     const newUser = this.state;
-    const user = {
-      username: this.state.username,
-      password: this.state.password,
-    }
     axios.post(`${process.env.REACT_APP_API_URL}/auth/register`, newUser)
       .then(res => {
         // After registering, API POST Request to Login
-        return axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, user)
+        return axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, newUser)
         .then(res => {
           this.props.setCurrentUser(res.data.signedJwt);
           this.props.history.push('/profile')
@@ -42,9 +37,9 @@ class Register extends React.Component {
   render() {
     return (
       <div className="row">
-        {this.state.errors && this.state.errors.map((e, i) => (
-          <div className="alert alert-danger alert-dismissible fade show" style={{width: '100%'}} role="alert" key={i}>
-            {e.message}
+        {this.state.errors && this.state.errors.map((error, index) => (
+          <div className="alert alert-danger alert-dismissible fade show" style={{width: '100%'}} role="alert" key={index}>
+            {error.message}
             <button type="button" className="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>

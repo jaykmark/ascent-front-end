@@ -4,6 +4,12 @@
 
 .skillDetailTotalMinutes {
   display: flex;
-  width: 300px;
+  width: 400px;
   border: solid black 3px;
+}
+
+.skillChart {
+  border: solid black 3px;
+  width: 80vw;
+  height: 300px;
 }
