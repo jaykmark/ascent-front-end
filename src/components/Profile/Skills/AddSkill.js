@@ -1,4 +1,5 @@
 import React from 'react';
+import './Skills.css';
 
 class AddSkill extends React.Component {
   state = {
@@ -16,11 +17,9 @@ class AddSkill extends React.Component {
   render () {
     return (
       <>
-      <div className="col">
-          <button className="nav-item nav-link btn-primary btn-sm" type="button"
-          id="register" data-toggle="modal" data-target="#addSkill">Add Skill</button>
-        </div>
-        <div className="container">
+        <button className="nav-item nav-link btn-primary btn-sm btn-addSkill" type="button"
+        id="register" data-toggle="modal" data-target="#addSkill">+</button>
+        
           <div className="modal fade" id="addSkill" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
               <div className="modal-content">
@@ -59,7 +58,7 @@ class AddSkill extends React.Component {
                       required
                     />
                   </div>
-                  <button data-dismiss="modal" onClick={(event) => this.props.addSkill(event, this.state)} className="btn btn-primary float-right" type="submit">
+                  <button data-dismiss="modal" onClick={(event) => this.props.addSkill(event, this.state)} className="btn btn-primary btn-sm float-right" type="submit">
                     Add Skill
                   </button>
                 </form>
@@ -67,7 +66,7 @@ class AddSkill extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+        
       </>
     )
   }

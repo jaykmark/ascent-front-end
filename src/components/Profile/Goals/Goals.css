@@ -1,3 +1,6 @@
 .goalsList {
-  width: 500px;
+  width: 400px;
+  margin: 15px 0;
+  text-align: center;
+  padding: 15px;
 }

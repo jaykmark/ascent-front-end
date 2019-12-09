@@ -2,9 +2,15 @@
   margin: 10px;
 }
 
+.skillDetailHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .skillDetailTotalMinutes {
   display: flex;
-  width: 400px;
+  width: 600px;
   border: solid black 3px;
 }
 

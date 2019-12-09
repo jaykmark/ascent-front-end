@@ -2,7 +2,7 @@ import React from 'react';
 
 class EditSkill extends React.Component {
   state = {
-    skillId: this.props.skillDetail._id,
+    skill: this.props.skillDetail._id,
     name: this.props.skillDetail.name,
     totalMinutes: this.props.skillDetail.totalMinutes,
     description: this.props.skillDetail.description,
@@ -18,10 +18,11 @@ class EditSkill extends React.Component {
   render() {
     return (
       <>
-        <div className="col">
-          <button className="nav-item nav-link btn-primary btn-sm" type="button"
-          id="register" data-toggle="modal" data-target="#editSkill">Edit Skill</button>
-        </div>
+        {/* EditSkill Button */}
+        <button className="nav-item nav-link btn-outline-success btn-sm float-right" type="button"
+        id="register" data-toggle="modal" data-target="#editSkill">Edit Skill</button>
+
+        {/* EditSkill Modal */}
         <div className="container">
           <div className="modal fade" id="editSkill" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
@@ -32,7 +33,7 @@ class EditSkill extends React.Component {
                 <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              {/* EditSkill Modal */}
+              
               <div className="modal-body">
                 <form>
                   <div className="form-group">
