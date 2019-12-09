@@ -1,0 +1,9 @@
+.skillDetailPage {
+  margin: 10px;
+}
+
+.skillDetailTotalMinutes {
+  display: flex;
+  width: 300px;
+  border: solid black 3px;
+}

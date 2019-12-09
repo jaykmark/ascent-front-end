@@ -2,7 +2,8 @@ import React from 'react';
 
 class AddGoal extends React.Component {
   state = {
-    skill: this.props.skills[0]._id,
+    // How to grab only the default
+    skill: '',
     duration: '',
     frequency: 'Daily',
   };

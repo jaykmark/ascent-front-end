@@ -20,7 +20,6 @@ class LogTime extends React.Component {
           <button className="nav-item nav-link btn-primary btn-sm" type="button"
           id="register" data-toggle="modal" data-target={`#addLogTime-${this.props.skillDetail._id}`}>Log Time</button>
         </div>
-        <div className="container">
           <div className="modal fade" id={`addLogTime-${this.props.skillDetail._id}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
               <div className="modal-content">
@@ -64,7 +63,6 @@ class LogTime extends React.Component {
               </div>
             </div>
           </div>
-        </div>
       </div>
       </>
     )
