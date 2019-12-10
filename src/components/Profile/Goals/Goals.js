@@ -5,17 +5,32 @@ import './Goals.css'
 
 class Goals extends React.Component {
   displayDailyGoals = (goals) => {
+    // Go through array of goals set in state
     return goals.map(goal => {
-      if (goal.frequency === "Daily")
-        return <Goal key={goal._id} goalDetail={goal} logTime={this.props.logTime} editGoal={this.props.editGoal} deleteGoal={this.props.deleteGoal} />
-    })
+      // Filter by Frequency of Daily
+      if (goal.frequency === "Daily") {
+        let match = false;
+        if (goal.skill && goal.skill.logTimes) {
+          goal.skill.logTimes.forEach(logTime => {
+            // console.log(logTime.date.substr(0,10));
+            // console.log(new Date().toISOString().substr(0,10));
+            if (logTime.date.substr(0,10) === new Date().toISOString().substr(0,10)) {
+              return match = true;
+            }
+          });
+        }
+        if (!match) {
+          return <Goal key={goal._id} goalDetail={goal} logTime={this.props.logTime} editGoal={this.props.editGoal} deleteGoal={this.props.deleteGoal} />
+        }
+      };
+    });
   };
 
   displayWeeklyGoals = (goals) => {
     return goals.map(goal => {
       if (goal.frequency === "Weekly")
         return <Goal key={goal._id} goalDetail={goal} logTime={this.props.logTime} editGoal={this.props.editGoal} deleteGoal={this.props.deleteGoal} />
-    })
+      })
   };
 
   displayMonthlyGoals = (goals) => {
@@ -24,6 +39,12 @@ class Goals extends React.Component {
         return <Goal key={goal._id} goalDetail={goal} logTime={this.props.logTime} editGoal={this.props.editGoal} deleteGoal={this.props.deleteGoal} />
     })
   };
+
+  // Grab Log Times of a Skill related to a Goal
+
+  // Parse the Date of the Log times to DD-MM-YYYY
+
+  // Compare that to Date.now() parsed to DD-MM-YYYY
 
 
   render() {

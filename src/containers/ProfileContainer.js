@@ -46,7 +46,6 @@ class ProfileContainer extends React.Component {
       this.setState({
         skills: [...this.state.skills, res.data.data],
       })
-      console.log(this.state.skills)
     })
       .catch(err => console.log(err));
   };
@@ -56,12 +55,19 @@ class ProfileContainer extends React.Component {
     // API POST Request - Create a goal and add to skill's model
     axios.post(`${process.env.REACT_APP_API_URL}/goals`, createdGoal)
       .then(res => {
-        const filteredGoals = this.state.goals.filter(goal => {
-          if (goal.skill._id !== res.data.data.skill) return goal;
-        })
-        this.setState({
-          goals: [...filteredGoals, res.data.data],
-        })
+        console.log(res.data.data);
+        if (this.state.goals.length) {
+          const filteredGoals = this.state.goals.filter(goal => {
+            if (goal.skill._id !== res.data.data.skill) return goal;
+          })
+          this.setState({
+            goals: [...filteredGoals, res.data.data],
+          })
+        } else {
+          this.setState({
+            goals: [res.data.data],
+          })
+        }
       })
       .catch(err => console.log(err));
   };
@@ -71,11 +77,17 @@ class ProfileContainer extends React.Component {
     // API POST Request - Create a LogTime and add to minutes Skill's Model
     axios.post(`${process.env.REACT_APP_API_URL}/logtimes`, logTime)
       .then(res => {
+        console.log(res.data.data.goals)
         const filteredSkills = this.state.skills.filter(skill => {
           if (skill._id !== res.data.data._id) return skill;
         })
+        const filteredGoals = this.state.goals.filter(goal => {
+          if (goal._id !== res.data.data.goals._id) return goal;
+        })
+        console.log(filteredGoals)
         this.setState({
           skills: [...filteredSkills, res.data.data],
+          goals: [...filteredGoals, res.data.data.goals],
         })
       })
       .catch(err => console.log(err))
