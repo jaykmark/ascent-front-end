@@ -2,6 +2,7 @@ import React from 'react';
 import LogTime from '../LogTime/LogTime';
 import EditSkill from './EditSkill/EditSkill';
 import DeleteSkill from './DeleteSkill/DeleteSkill';
+import SkillChart from './SkillChart/SkillChart';
 import './SkillDetail.css';
 
 class SkillDetail extends React.Component {
@@ -28,13 +29,11 @@ class SkillDetail extends React.Component {
                 <LogTime skillDetail={this.props.skillDetail} logTime={this.props.logTime} />
               </div>
             </div>
-          <EditSkill skillDetail={this.props.skillDetail} editSkill={this.props.editSkill}/>
+          <EditSkill skillDetail={this.props.skillDetail} editSkill={this.props.editSkill} />
           <p><strong>Description:</strong> {description}</p>
           <p><strong>Notes:</strong> {notes}</p>
-          <div className="skillChart">
-            {this.props.skillDetail.logTimes && this.displayLogTimes(this.props.skillDetail.logTimes)}
-          </div>
-          <DeleteSkill skillDetail={this.props.skillDetail} deleteSkill={this.props.deleteSkill}/>
+          <SkillChart skillDetail={this.props.skillDetail} displayLogTimes={this.displayLogTimes} />
+          <DeleteSkill skillDetail={this.props.skillDetail} deleteSkill={this.props.deleteSkill} />
           </div>
         </div>
       </>

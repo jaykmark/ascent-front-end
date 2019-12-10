@@ -17,7 +17,7 @@ class AddSkill extends React.Component {
   render () {
     return (
       <>
-        <button className="nav-item nav-link btn-primary btn-sm btn-addSkill" type="button"
+        <button className="btn-primary btn-sm btn-addSkill" type="button"
         id="register" data-toggle="modal" data-target="#addSkill">+</button>
         
           <div className="modal fade" id="addSkill" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -58,7 +58,12 @@ class AddSkill extends React.Component {
                       required
                     />
                   </div>
-                  <button data-dismiss="modal" onClick={(event) => this.props.addSkill(event, this.state)} className="btn btn-primary btn-sm float-right" type="submit">
+                  <button data-dismiss="modal" onClick={(event) => {
+                    this.props.addSkill(event, this.state)
+                    this.setState({
+                      name: '',
+                      totalMinutes: '',
+                    })}} className="btn btn-primary btn-sm float-right" type="submit">
                     Add Skill
                   </button>
                 </form>

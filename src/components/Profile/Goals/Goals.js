@@ -56,7 +56,7 @@ class Goals extends React.Component {
           <div className="goalsListHeader">
             <h3>HERE YO GOALS</h3>
             {this.props.skills && <AddGoal skills={this.props.skills} addGoal={this.props.addGoal} />}
-            {this.props.goals && <button className="btn btn-primary">Edit Goals</button> }
+            {this.props.goals && <button className="btn btn-primary btn-sm">Edit Goals</button> }
           </div>
           <h4>DAILY</h4>
           {this.props.goals && this.displayDailyGoals(this.props.goals)}

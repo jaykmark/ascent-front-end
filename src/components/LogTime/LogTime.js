@@ -18,7 +18,7 @@ class LogTime extends React.Component {
     return (
       <>
         {/* MODAL BUTTON */}
-        <button className="nav-item nav-link btn-primary btn-sm btn-logTime justify-self-end" type="button"
+        <button className="btn-primary btn-sm btn btn-logTime float-right" type="button"
         id="btn-logTime" data-toggle="modal" data-target={`#addLogTime-${this.props.skillDetail._id}`}>Log Time</button>
         {/* MODAL BODY */}
         <div className="modal fade" id={`addLogTime-${this.props.skillDetail._id}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

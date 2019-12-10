@@ -9,3 +9,7 @@
 .goalsListHeader {
   height: 75px;
 }
+
+.goalsListHeader button {
+  height: 40px;
+}
