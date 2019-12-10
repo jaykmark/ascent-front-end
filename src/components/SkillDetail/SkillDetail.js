@@ -17,15 +17,17 @@ class SkillDetail extends React.Component {
   };
 
   render() {
-    const { name, description, notes, totalMinutes } = this.props.skillDetail;
+    const { name, description, notes } = this.props.skillDetail;
+    const totalHours = Math.floor(this.props.skillDetail.totalMinutes / 60);
+    const minutes = this.props.skillDetail.totalMinutes - (totalHours * 60);
     return (
       <>
         <div className="container">
           <div className="skillDetailPage">
             <div className="skillDetailHeader">
-              <h3>{ name }</h3>
+              <h3>{name}</h3>
               <div className="skillDetailTotalMinutes">
-                { totalMinutes } mins
+                {totalHours} hours {minutes} mins
                 <LogTime skillDetail={this.props.skillDetail} logTime={this.props.logTime} />
               </div>
             </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bar, Line, Pie } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 
 class SkillChart extends React.Component {
   lastWeek() {
@@ -22,7 +22,7 @@ class SkillChart extends React.Component {
       let minutes = 0;
       logTimes.forEach(logTime => {
         // Compare to dates in chartLabels
-        if (logTime.date.substr(0,10) == tempDate) {
+        if (logTime.date.substr(0,10) === tempDate) {
           console.log('BOOP');
           minutes += logTime.minutes;
         }
@@ -33,8 +33,6 @@ class SkillChart extends React.Component {
   }
 
   render() {
-    console.log(this.lastWeekLogTimes(this.props.skillDetail.logTimes));
-
     const chartData = {
       labels: this.lastWeek(),
       datasets: [

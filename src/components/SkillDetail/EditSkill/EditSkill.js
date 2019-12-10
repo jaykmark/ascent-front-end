@@ -87,7 +87,7 @@ class EditSkill extends React.Component {
                       name="notes"
                       value={this.state.notes}
                       minLength="1"
-                      maxLength="200"
+                      maxLength="500"
                     ></textarea>
                   </div>
                   <button data-dismiss="modal" onClick={(event) => this.props.editSkill(event, this.state)} className="btn btn-primary float-right" type="submit">
