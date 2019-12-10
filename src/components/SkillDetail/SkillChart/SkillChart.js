@@ -10,22 +10,37 @@ class SkillChart extends React.Component {
       chartLabels.unshift(date.toLocaleString().substr(0,9))
     }
     return chartLabels
-    // Check to see if the date is within the past seven days
+  }
+
+  // Loop through last week of log times
+  lastWeekLogTimes(logTimes) {
+    const chartData = [];
+    for (let i = 1; i < 8; i++) {
+      const date = new Date();
+      date.setDate(date.getDate() - i);
+      const tempDate = date.toISOString().substr(0,10);
+      let minutes = 0;
+      logTimes.forEach(logTime => {
+        // Compare to dates in chartLabels
+        if (logTime.date.substr(0,10) == tempDate) {
+          console.log('BOOP');
+          minutes += logTime.minutes;
+        }
+      })
+      chartData.unshift(minutes);
+    }  
+    return chartData
   }
 
   render() {
+    console.log(this.lastWeekLogTimes(this.props.skillDetail.logTimes));
+
     const chartData = {
       labels: this.lastWeek(),
       datasets: [
         {
-          label: 'Time',
-          data: [
-            60,
-            80,
-            40,
-            90,
-            20,
-          ],
+          label: 'Minutes',
+          data: this.lastWeekLogTimes(this.props.skillDetail.logTimes),
           backgroundColor: [
           ]
         }
