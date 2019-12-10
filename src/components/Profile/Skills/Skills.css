@@ -1,5 +1,7 @@
 .skillsList {
   width: 500px;
+  height: 80vh;
+  overflow: auto;
   justify-content: center;
   align-items: center;
   /* align-self: center; */
@@ -10,7 +12,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%
+  width: 100%;
+  height: 75px;
 }
 
 .btn-addSkill {

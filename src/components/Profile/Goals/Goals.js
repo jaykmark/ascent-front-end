@@ -10,8 +10,10 @@ class Goals extends React.Component {
       // Filter by Frequency of Daily
       if (goal.frequency === "Daily") {
         let match = false;
-        if (goal.skill && goal.skill.logTimes) {
+        // console.log(goal.skill);
+        if (goal.skill && goal.skill.logTimes.length) {
           goal.skill.logTimes.forEach(logTime => {
+            // console.log(logTime)
             // console.log(logTime.date.substr(0,10));
             // console.log(new Date().toISOString().substr(0,10));
             if (logTime.date.substr(0,10) === new Date().toISOString().substr(0,10)) {

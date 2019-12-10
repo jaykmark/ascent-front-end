@@ -12,7 +12,7 @@ class LogTime extends React.Component {
     this.setState({
       [event.target.name]: event.target.value,
     })
-  }
+  };
 
   render () {
     return (

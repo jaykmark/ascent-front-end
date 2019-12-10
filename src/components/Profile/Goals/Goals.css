@@ -1,6 +1,11 @@
 .goalsList {
   width: 430px;
-  margin: 15px 0;
+  height: 80vh;
+  overflow: auto;
   text-align: center;
   padding: 15px;
+}
+
+.goalsListHeader {
+  height: 75px;
 }
