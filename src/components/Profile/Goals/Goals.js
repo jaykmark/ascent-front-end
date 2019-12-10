@@ -25,6 +25,7 @@ class Goals extends React.Component {
           return <Goal key={goal._id} goalDetail={goal} logTime={this.props.logTime} editGoal={this.props.editGoal} deleteGoal={this.props.deleteGoal} />
         }
       };
+      return null;
     });
   };
 
@@ -32,6 +33,7 @@ class Goals extends React.Component {
     return goals.map(goal => {
       if (goal.frequency === "Weekly")
         return <Goal key={goal._id} goalDetail={goal} logTime={this.props.logTime} editGoal={this.props.editGoal} deleteGoal={this.props.deleteGoal} />
+      return null;
       })
   };
 
@@ -39,6 +41,7 @@ class Goals extends React.Component {
     return goals.map(goal => {
       if (goal.frequency === "Monthly")
         return <Goal key={goal._id} goalDetail={goal} logTime={this.props.logTime} editGoal={this.props.editGoal} deleteGoal={this.props.deleteGoal} />
+      return null;
     })
   };
 

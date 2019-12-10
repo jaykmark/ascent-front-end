@@ -10,7 +10,7 @@ function Skill(props) {
 
   return (
     <>
-    <div className="skill">
+    {/* <div className="skill col-12">
       <Link to={skillLink}>
         <div className="skillName">
           <h4>{props.skillDetail.name}</h4>
@@ -18,7 +18,28 @@ function Skill(props) {
         </div>
       </Link>
       <LogTime skillDetail={props.skillDetail} logTime={props.logTime} />
+    </div> */}
+
+    <div className="card">
+    <div className="card-body">
+      <div className="row justify-content-center">
+        <div className="col-8">
+          <Link to={skillLink}>
+            <h5 className="card-title">{props.skillDetail.name}</h5>
+            <p className="card-text mt-2">{totalHours} hours {minutes} mins</p>
+          </Link>
+        </div>
+        <div className="col-4">
+          <LogTime skillDetail={props.skillDetail} logTime={props.logTime} />
+        
+        </div>
+      </div>
     </div>
+    </div>
+
+
+
+
     </>
   )
 }
