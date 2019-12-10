@@ -37,8 +37,9 @@ class AddGoal extends React.Component {
                       <label htmlFor="selectedSkill">Skill</label>
                       <select className="form-control" id="selectedSkill" name="skill" onChange={this.handleChange} value={this.state.skill}>
                         <option></option>
-                        {this.props.skills.map(skill => {
-                          return <option value={skill._id} key={skill._id}>{skill.name}</option>
+                        {this.props.skills.forEach(skill => {
+                            console.log(skill.goals)
+                            // skill.goals ? <></> : <option value={skill._id} key={skill._id}>{skill.name}</option>
                         })}
                       </select>
                     </div>

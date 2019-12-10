@@ -1,0 +1,19 @@
+.flex {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+#login {
+  margin-top: 100px;
+  width: 300px;
+  justify-content: center;
+  align-items: center;
+  border-style: none;
+}
+
+.register {
+  margin-top: 100px;
+  width: 300px;
+}

@@ -14,7 +14,7 @@ function Skill(props) {
       <Link to={skillLink}>
         <div className="skillName">
           <h4>{props.skillDetail.name}</h4>
-          <p>TOTAL TIME: {totalHours} hours {minutes} mins</p>
+          <p>{totalHours} hours {minutes} mins</p>
         </div>
       </Link>
       <LogTime skillDetail={props.skillDetail} logTime={props.logTime} />

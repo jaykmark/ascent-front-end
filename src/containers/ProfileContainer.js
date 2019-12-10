@@ -55,13 +55,17 @@ class ProfileContainer extends React.Component {
     // API POST Request - Create a goal and add to skill's model
     axios.post(`${process.env.REACT_APP_API_URL}/goals`, createdGoal)
       .then(res => {
+        console.log(res.data.data);
         if (this.state.goals.length) {
-          const filteredGoals = this.state.goals.filter(goal => {
-            // if (goal.skill._id !== res.data.data.skill) return goal;
-            return goal.skill._id !== res.data.data.skill;
-          })
+          // console.log(this.state.goals)
+          // const filteredGoals = this.state.goals.filter(goal => {
+          //   console.log(goal.skill)
+          //   console.log(res.data.data.skill)
+          //   return goal.skill._id !== res.data.data.skill._id;
+          // })
+          // console.log(filteredGoals);
           this.setState({
-            goals: [...filteredGoals, res.data.data],
+            goals: [...this.state.goals, res.data.data],
           })
         } else {
           this.setState({
@@ -79,18 +83,26 @@ class ProfileContainer extends React.Component {
     axios.post(`${process.env.REACT_APP_API_URL}/logtimes`, logTime)
       .then(res => {
         console.log(res.data.data)
-        const filteredSkills = this.state.skills.filter(skill => {
-          // if (skill._id !== res.data.data._id) return skill;
-          return skill._id !== res.data.data._id;
-        })
-        const filteredGoals = this.state.goals.filter(goal => {
-          // if (goal._id !== res.data.data.goals._id) return goal;
-          return goal._id !== res.data.data.goals._id;
-        })
-        this.setState({
-          skills: [...filteredSkills, res.data.data],
-          goals: [...filteredGoals, res.data.data.goals],
-        })
+        if (!res.data.data.goals) {
+          const filteredSkills = this.state.skills.filter(skill => {
+            return skill._id !== res.data.data._id;
+          });
+          this.setState({
+            skills: [...filteredSkills, res.data.data],
+          });
+        } else {
+          const filteredSkills = this.state.skills.filter(skill => {
+            return skill._id !== res.data.data._id;
+          })
+          const filteredGoals = this.state.goals.filter(goal => {
+            return goal._id !== res.data.data.goals._id;
+          })
+          this.setState({
+            skills: [...filteredSkills, res.data.data],
+            goals: [...filteredGoals, res.data.data.goals],
+          })
+        }
+        
       })
       .catch(err => console.log(err))
   };
@@ -118,10 +130,16 @@ class ProfileContainer extends React.Component {
         const filteredGoals = this.state.goals.filter(goal => {
           return goal._id !== res.data.data._id;
         })
-        this.setState({
-          goals: [...filteredGoals, res.data.data],
+        if (filteredGoals.length) {
+          this.setState({
+            goals: [filteredGoals],
+          })
+        } else {
+          this.setState({
+            goals: [],
+          })
+        }
         })
-      })
       .catch(err => console.log(err))
   };
   

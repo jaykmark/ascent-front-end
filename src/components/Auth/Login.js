@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import './Auth.css';
 
 class Login extends React.Component {
   state = {
@@ -31,7 +32,7 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className="row">
+      <div className="flex">
         {this.state.error && (
           <div className="alert alert-danger alert-dismissible fade show" style={{width: '100%'}} role="alert">
             {this.state.error}
@@ -40,16 +41,16 @@ class Login extends React.Component {
             </button>
           </div>
         )}
-        <section id="login" className="col-md-6 offset-md-3">
+        <section id="login" className="login">
           <h2 className="mb-4">Login</h2>
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
-              <label htmlFor="username">Username</label>
-              <input type="username" id="username" name="username" value={this.state.username} onChange={this.handleChange} className="form-control form-control-lg" />
+              {/* <label htmlFor="username">Username</label> */}
+              <input type="username" id="username" name="username" value={this.state.username} onChange={this.handleChange} className="form-control form-control-lg" placeholder="Username" />
             </div>
             <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input type="password" id="password" name="password" value={this.state.password} onChange={this.handleChange} className="form-control form-control-lg" />
+              {/* <label htmlFor="password">Password</label> */}
+              <input type="password" id="password" name="password" value={this.state.password} onChange={this.handleChange} className="form-control form-control-lg" placeholder="Password" />
             </div>
             <button type="submit" className="btn btn-primary float-right">Login</button>
           </form>

@@ -52,7 +52,7 @@ class SkillDetailContainer extends React.Component {
   render() {
     return (
       <>
-        {this.state.skillDetail && <SkillDetail skillDetail={this.state.skillDetail} logTime={this.logTime} editSkill={this.editSkill}deleteSkill={this.deleteSkill} /> }
+        {this.state.skillDetail && <SkillDetail skillDetail={this.state.skillDetail} logTime={this.logTime} editSkill={this.editSkill} deleteSkill={this.deleteSkill} /> }
       </>
     )
   }

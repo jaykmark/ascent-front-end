@@ -59,11 +59,11 @@ class Goals extends React.Component {
             {this.props.goals && <button className="btn btn-primary btn-sm">Edit Goals</button> }
           </div>
           <h4>DAILY</h4>
-          {this.props.goals && this.displayDailyGoals(this.props.goals)}
+          {this.props.goals.length && this.displayDailyGoals(this.props.goals)}
           <h4>WEEKLY</h4>
-          {this.props.goals && this.displayWeeklyGoals(this.props.goals)}
+          {this.props.goals.length && this.displayWeeklyGoals(this.props.goals)}
           <h4>MONTHLY</h4>
-          {this.props.goals && this.displayMonthlyGoals(this.props.goals)}
+          {this.props.goals.length && this.displayMonthlyGoals(this.props.goals)}
         </div>
       </>
     )
