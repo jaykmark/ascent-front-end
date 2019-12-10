@@ -1,3 +1,6 @@
-.btn-LogTime {
+.btn-logTime {
   margin-left: auto;
+  width: 150px;
+  height: 50px;
+  font-size: 18px;
 }

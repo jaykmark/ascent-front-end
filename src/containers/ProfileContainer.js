@@ -145,7 +145,7 @@ class ProfileContainer extends React.Component {
   
   render() {
     return (
-      <div className="container">
+      <div className="container profile">
         <h2>GIT GUD, {this.state.user.username}</h2>
         <div className="profileBody">
           {this.state.user._id && <Skills user={this.state.user} skills={this.state.skills} addSkill={this.addSkill} logTime={this.logTime} /> }

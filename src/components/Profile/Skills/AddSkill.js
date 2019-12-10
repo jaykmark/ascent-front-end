@@ -18,7 +18,7 @@ class AddSkill extends React.Component {
     return (
       <>
         <button className="btn-primary btn-sm btn-addSkill" type="button"
-        id="register" data-toggle="modal" data-target="#addSkill">+</button>
+        id="register" data-toggle="modal" data-target="#addSkill"><p>+</p></button>
         
           <div className="modal fade" id="addSkill" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">

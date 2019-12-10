@@ -17,10 +17,8 @@ class AddGoal extends React.Component {
   render() {
     return (
       <>
-        <div className="col">
-          <button className="btn btn-primary btn-sm" type="button"
-          id="btn-addGoal" data-toggle="modal" data-target="#addGoal">Add Goal</button>
-        </div>
+          <button className="btn btn-primary btn-sm btn-addGoal" type="button"
+          id="btn-addGoal" data-toggle="modal" data-target="#addGoal"><p>+</p></button>
             <div className="modal fade" id="addGoal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div className="modal-dialog" role="document">
                 <div className="modal-content">

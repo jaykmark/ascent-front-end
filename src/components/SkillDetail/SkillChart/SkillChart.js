@@ -7,7 +7,9 @@ class SkillChart extends React.Component {
     for (let i = 0; i < 7; i++) {
       const date = new Date();
       date.setDate(date.getDate() - i);
-      chartLabels.unshift(date.toLocaleString().substr(0,9))
+      const splitDate = date.toLocaleString().split('/')
+      const formattedDate = splitDate[0] + '/' + splitDate[1] + '/' + splitDate[2]
+      chartLabels.unshift(formattedDate.split(',')[0])
     }
     return chartLabels
   }
@@ -15,7 +17,7 @@ class SkillChart extends React.Component {
   // Loop through last week of log times
   lastWeekLogTimes(logTimes) {
     const chartData = [];
-    for (let i = 1; i < 8; i++) {
+    for (let i = 0; i < 7; i++) {
       const date = new Date();
       date.setDate(date.getDate() - i);
       const tempDate = date.toISOString().substr(0,10);

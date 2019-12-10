@@ -14,3 +14,36 @@
 .goalWrapper {
   display: flex;
 }
+
+.card-body {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.card-goal {
+  margin: 15px 0;
+}
+
+.card-body-goal {
+  height: 75px;
+}
+
+.btn-complete {
+  margin-left: auto;
+  height: 40px;
+  width: 100px;
+}
+
+.card-title-goal {
+  margin: 0;
+}
+
+.card-text-goal {
+  margin: 0;
+}
+
+.btn-editGoal {
+  margin-left: auto;
+  transform: translate(0px, 50px);
+}
