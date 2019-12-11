@@ -7,7 +7,11 @@ class Navbar extends React.Component {
     return (
       <nav className="navbar navbar-expand-sm navbar-dark nav-bar">
         <div className="container">
+          {this.props.currentUser ? 
+          <a className="navbar-brand" href="/profile">ASCENT</a>
+          :
           <a className="navbar-brand" href="/">ASCENT</a>
+          }
           
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>

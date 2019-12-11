@@ -32,6 +32,7 @@ class Login extends React.Component {
 
   render() {
     return (
+      <div className="login-screen">
       <div className="flex">
         {this.state.error && (
           <div className="alert alert-danger alert-dismissible fade show" style={{width: '100%'}} role="alert">
@@ -55,6 +56,7 @@ class Login extends React.Component {
             <button type="submit" className="btn btn-primary float-right btn-auth">Login</button>
           </form>
         </section>
+      </div>
       </div>
     );
   };

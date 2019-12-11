@@ -50,7 +50,7 @@ class EditGoal extends React.Component {
                       <select name="frequency" value={this.state.frequency} className="form-control" id="goalFrequency" onChange={this.handleChange}>
                         <option>Daily</option>
                         <option>Weekly</option>
-                        <option>Monthly</option>
+                        {/* <option>Monthly</option> */}
                       </select>
                     </div>
                     <button data-dismiss="modal" onClick={(event) => this.props.editGoal(event, this.state)} className="btn btn-primary float-right" type="submit">
