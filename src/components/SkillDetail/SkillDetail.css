@@ -11,7 +11,6 @@
 
 .skillDetailHeader h3 {
   font-size: 48px;
-  margin: 15px 0;
 }
 
 .skillDetailTotalMinutes {
@@ -29,7 +28,18 @@
 }
 
 .skillChart {
-  border: solid black 3px;
+  border: solid grey 1px;
+  border-radius: 3px;
   width: 800px;
   height: 400px;
+  box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
+}
+
+.card-skill-detail {
+  width: 600px;
+  box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
+}
+
+.btn-editSkill {
+  box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
 }

@@ -1,8 +1,9 @@
 .goalsList {
-  width: 430px;
+  width: 475px;
   height: 75vh;
   overflow: auto;
-  /* padding: 15px; */
+  padding: 15px;
+  box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
 }
 
 .goalsList h3 {
@@ -30,10 +31,12 @@
   width: 25px;
   height: 25px;
   margin-left: 10px;
+  box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
 }
 
 .btn-addGoal p {
-  transform: translate(-1px, -3px);
+  font-size: 18px;
+  transform: translate(-2.5px, -6px);
 }
 
 .goal-alert {

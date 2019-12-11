@@ -23,6 +23,7 @@
 
 .card-goal {
   margin: 15px 0;
+  box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
 }
 
 .card-body-goal {
@@ -33,6 +34,12 @@
   margin-left: auto;
   height: 40px;
   width: 100px;
+  box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
+}
+
+.card-header-goal {
+  width: 285px;
+  text-overflow: ellipsis;
 }
 
 .card-title-goal {
@@ -48,6 +55,7 @@
   width: 25px;
   margin-left: auto;
   transform: translate(0px, -10px);
+  box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
 }
 
 .btn-editGoal p {

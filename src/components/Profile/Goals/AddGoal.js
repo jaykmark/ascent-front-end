@@ -60,7 +60,13 @@ class AddGoal extends React.Component {
                         <option>Monthly</option>
                       </select>
                     </div>
-                    <button data-dismiss="modal" onClick={(event) => this.props.addGoal(event, this.state)} className="btn btn-primary float-right" type="submit">
+                    <button data-dismiss="modal" onClick={
+                      (event) => {this.props.addGoal(event, this.state)
+                      this.setState({
+                        skill: '',
+                        duration: '',
+                      })}
+                      } className="btn btn-primary float-right" type="submit">
                       Add Goal
                     </button>
                   </form>

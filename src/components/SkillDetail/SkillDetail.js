@@ -26,10 +26,16 @@ class SkillDetail extends React.Component {
           <div className="skillDetailPage">
             <div className="skillDetailHeader">
               <h3>{name}</h3>
-              <div className="skillDetailTotalMinutes">
+              <div className="card card-skill-detail">
+                <div className="card-body card-body-skill">
+                    <h5 className="card-title card-title-skill">{totalHours} hours {minutes > 0 ? `${minutes} mins` : null}</h5>
+                    <LogTime skillDetail={this.props.skillDetail} logTime={this.props.logTime} />
+                </div>
+              </div>
+              {/* <div className="skillDetailTotalMinutes">
                 {totalHours} hours {minutes} mins
                 <LogTime skillDetail={this.props.skillDetail} logTime={this.props.logTime} />
-              </div>
+              </div> */}
             </div>
           <EditSkill skillDetail={this.props.skillDetail} editSkill={this.props.editSkill} />
           <p><strong>Description:</strong> {description}</p>

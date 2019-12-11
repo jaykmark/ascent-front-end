@@ -31,8 +31,8 @@ class EditSkill extends React.Component {
     return (
       <>
         {/* EditSkill Button */}
-        <button className="btn btn-success btn-sm float-right" type="button"
-        id="register" data-toggle="modal" data-target="#editSkill">Edit Skill</button>
+        <button className="btn btn-success btn-sm float-right btn-editSkill" type="button"
+        id="register" data-toggle="modal" data-target="#editSkill">EDIT SKILL</button>
 
         {/* EditSkill Modal */}
         <div className="container">

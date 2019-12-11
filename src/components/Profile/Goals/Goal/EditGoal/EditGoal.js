@@ -56,7 +56,7 @@ class EditGoal extends React.Component {
                     <button data-dismiss="modal" onClick={(event) => this.props.editGoal(event, this.state)} className="btn btn-primary float-right" type="submit">
                       Edit Goal
                     </button>
-                    <button data-dismiss="modal" onClick={(event) => this.props.deleteGoal(event, this.props.goalDetail._id)} className="btn btn-primary float-right" type="submit">Remove Goal</button>
+                    <button data-dismiss="modal" onClick={(event) => this.props.deleteGoal(event, this.props.goalDetail._id)} className="btn btn-outline-danger float-left" type="submit">Remove Goal</button>
                   </form>
                 </div>
               </div>

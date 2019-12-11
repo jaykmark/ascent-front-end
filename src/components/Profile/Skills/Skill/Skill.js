@@ -24,7 +24,7 @@ function Skill(props) {
       <div className="card-body card-body-skill">
           <Link to={skillLink}>
             <h5 className="card-title card-title-skill">{props.skillDetail.name}</h5>
-            <p className="card-text">{totalHours} hours {minutes} mins</p>
+            <p className="card-text">{totalHours} hours {minutes > 0 ? `${minutes} mins` : null}</p>
           </Link>
           <LogTime skillDetail={props.skillDetail} logTime={props.logTime} />
       </div>
