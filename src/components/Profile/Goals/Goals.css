@@ -37,3 +37,6 @@
   transform: translate(-1px, -3px);
 }
 
+.goal-alert {
+  text-align: center;
+}

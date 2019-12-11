@@ -9,6 +9,18 @@ class EditSkill extends React.Component {
     notes: this.props.skillDetail.notes,
   };
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.skillDetail !== this.props.skillDetail) {
+      this.setState({
+        skill: this.props.skillDetail._id,
+        name: this.props.skillDetail.name,
+        totalMinutes: this.props.skillDetail.totalMinutes,
+        description: this.props.skillDetail.description,
+        notes: this.props.skillDetail.notes,
+      })
+    }
+  }
+
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,

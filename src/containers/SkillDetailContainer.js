@@ -11,6 +11,7 @@ class SkillDetailContainer extends React.Component {
     const skillId = this.props.location.pathname.split('/')[2]
     axios.get(`${process.env.REACT_APP_API_URL}/skills/${skillId}`)
       .then(res => {
+        console.log(res.data.data)
         this.setState({
           skillDetail: res.data.data,
         })
