@@ -18,7 +18,7 @@ class EditGoal extends React.Component {
     return (
       <>
             <button className="nav-item nav-link btn-primary btn-sm btn-editGoal" type="button"
-            id="register" data-toggle="modal" data-target={`#editGoal-${this.props.goalDetail._id}`}>Edit</button>
+            id="register" data-toggle="modal" data-target={`#editGoal-${this.props.goalDetail._id}`}><p>Edit</p></button>
 
           <div className="container">
             <div className="modal fade" id={`editGoal-${this.props.goalDetail._id}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -30,10 +30,13 @@ class Goals extends React.Component {
   };
 
   displayWeeklyGoals = (goals) => {
+    // Go through array of goals set in state
     return goals.map(goal => {
+      // Filter by Frequency of Weekly
       if (goal.frequency === "Weekly") {
         let completed = false;
         if (goal.skill && goal.skill.logTimes.length) {
+          // Go through each log time and see if it has been within the last week
           goal.skill.logTimes.forEach(logTime => {
             if (Date.now() -  Date.parse(logTime.date) < 604800000) {
               return completed = true;

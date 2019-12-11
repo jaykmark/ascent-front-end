@@ -44,6 +44,12 @@
 }
 
 .btn-editGoal {
+  height: 25px;
+  width: 25px;
   margin-left: auto;
-  transform: translate(0px, 50px);
+  transform: translate(0px, -10px);
+}
+
+.btn-editGoal p {
+  transform: translate(-12px, -7px);
 }

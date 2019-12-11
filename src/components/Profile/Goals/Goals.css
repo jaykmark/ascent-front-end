@@ -1,8 +1,7 @@
 .goalsList {
   width: 430px;
-  height: 80vh;
-  /* overflow: auto;
-  text-align: center; */
+  height: 75vh;
+  overflow: auto;
   /* padding: 15px; */
 }
 
