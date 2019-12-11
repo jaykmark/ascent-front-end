@@ -25,7 +25,6 @@ class SkillChart extends React.Component {
       logTimes.forEach(logTime => {
         // Compare to dates in chartLabels
         if (logTime.date.substr(0,10) === tempDate) {
-          console.log('BOOP');
           minutes += logTime.minutes;
         }
       })
@@ -48,7 +47,7 @@ class SkillChart extends React.Component {
     }
 
     return (
-      <div className="skillChart container">
+      <div className="skillChart container card">
         <Bar
           data={chartData}
           width={100}

@@ -1,4 +1,5 @@
 import React from 'react';
+import '../SkillDetail.css';
 
 class EditSkill extends React.Component {
   state = {
@@ -80,7 +81,7 @@ class EditSkill extends React.Component {
                     <label htmlFor="description">Description</label>
                     <textarea
                       onChange={this.handleChange}
-                      className="form-control form-control-lg"
+                      className="form-control form-control-md"
                       type="text"
                       id="description"
                       name="description"
@@ -93,7 +94,7 @@ class EditSkill extends React.Component {
                     <label htmlFor="notes">Notes</label>
                     <textarea
                       onChange={this.handleChange}
-                      className="form-control form-control-lg"
+                      className="form-control form-control-sm"
                       type="text"
                       id="notes"
                       name="notes"

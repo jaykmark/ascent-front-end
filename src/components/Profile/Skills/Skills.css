@@ -1,6 +1,6 @@
 .skillsList {
   width: 575px;
-  height: 75vh;
+  height: 77vh;
   overflow: auto;
   justify-content: center;
   align-items: center;
@@ -15,7 +15,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 75px;
+  height: 40px;
 }
 
 .skillsListHeader h3 {
@@ -29,10 +29,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background: rgba(0, 87, 4, 1);
+  border: rgba(0, 87, 4, 1);
   box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
 }
 
+.btn-addSkill:hover {
+  background: rgba(0, 135, 7, 1);
+  border: rgba(0, 135, 7, 1);
+}
+
+.btn-addSkill:active {
+  background: rgba(0, 135, 7, 1);
+  border: rgba(0, 135, 7, 1);
+}
+
+
 .btn-addSkill p {
   font-size: 18px;
-  transform: translate(0, -6px);
+  transform: translate(-1px, -7px);
 }

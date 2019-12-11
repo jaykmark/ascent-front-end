@@ -27,7 +27,7 @@ const Goal = (props) => {
         <div className="card-body card-body-goal">
           <div className="card-header-goal">
             <h5 className="card-title card-title-goal">{props.goalDetail.skill.name}</h5>
-              <p className="card-text card-text-goal">{totalHours} hours {minutes > 0 ? `${minutes} mins` : null} </p>
+              <p className="card-text card-text-goal">{totalHours > 0 ? `${totalHours} hours` : null} {minutes > 0 ? `${minutes} mins` : null} </p>
             {/* <LogTime skillDetail={props.skillDetail} logTime={props.logTime} /> */}
           </div>
           <button className="btn btn-primary btn-sm btn-complete" onClick={(event) => props.logTime(event, logTime)}>COMPLETE</button>

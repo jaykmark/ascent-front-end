@@ -46,8 +46,8 @@ class Goals extends React.Component {
         if (!completed) {
           return <Goal key={goal._id} goalDetail={goal} logTime={this.props.logTime} editGoal={this.props.editGoal} deleteGoal={this.props.deleteGoal} />
         }
-      return null;
       }
+      return null;
     })
   };
 
@@ -58,13 +58,6 @@ class Goals extends React.Component {
       return null;
     })
   };
-
-  // Grab Log Times of a Skill related to a Goal
-
-  // Parse the Date of the Log times to DD-MM-YYYY
-
-  // Compare that to Date.now() parsed to DD-MM-YYYY
-
 
   render() {
     return (

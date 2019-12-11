@@ -30,7 +30,12 @@
 .card-skill {
   margin: 15px 0;
   height: 100px;
+  transition: 0.2s;
   box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
+}
+
+.card-skill:hover {
+  transform: scale(1.03);
 }
 
 .card-title-skill {

@@ -35,6 +35,18 @@
   height: 40px;
   width: 100px;
   box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
+  background: rgba(0, 87, 4, 1);
+  border: rgba(0, 87, 4, 1);
+}
+
+.btn-complete:hover {
+  background: rgba(0, 135, 7, 1);
+  border: rgba(0, 135, 7, 1);
+}
+
+.btn-complete:active {
+  background: rgba(0, 135, 7, 1);
+  border: rgba(0, 135, 7, 1);
 }
 
 .card-header-goal {

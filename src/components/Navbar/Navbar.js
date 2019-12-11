@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import './Navbar.css';
 
 class Navbar extends React.Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-sm navbar-dark nav-bar">
         <div className="container">
           <a className="navbar-brand" href="/">ASCENT</a>
           

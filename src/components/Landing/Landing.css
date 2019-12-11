@@ -5,4 +5,26 @@
   -o-background-size: cover;
   background-size: cover;
   min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-callToAction {
+  background: rgba(0, 87, 4, 1);
+  border: rgba(0, 87, 4, 1);
+  width: 125px;
+  height: 50px;
+  font-size: 18px;
+}
+
+.btn-callToAction:hover {
+  background: rgba(0, 135, 7, 1);
+  border: rgba(0, 135, 7, 1);
+}
+
+.btn-callToAction:active {
+  background: rgba(0, 135, 7, 1);
+  border: rgba(0, 135, 7, 1);
 }

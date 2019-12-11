@@ -37,11 +37,11 @@ class SkillDetail extends React.Component {
                 <LogTime skillDetail={this.props.skillDetail} logTime={this.props.logTime} />
               </div> */}
             </div>
-          <EditSkill skillDetail={this.props.skillDetail} editSkill={this.props.editSkill} />
-          <p><strong>Description:</strong> {description}</p>
-          <p><strong>Notes:</strong> {notes}</p>
-          <SkillChart skillDetail={this.props.skillDetail} displayLogTimes={this.displayLogTimes} />
-          <DeleteSkill skillDetail={this.props.skillDetail} deleteSkill={this.props.deleteSkill} />
+            <EditSkill skillDetail={this.props.skillDetail} editSkill={this.props.editSkill} />
+            <p className="skillDetailDescription"><strong>Description:</strong> {description}</p>
+            <p><strong>Notes:</strong> {notes}</p>
+            <SkillChart skillDetail={this.props.skillDetail} displayLogTimes={this.displayLogTimes} />
+            <DeleteSkill skillDetail={this.props.skillDetail} deleteSkill={this.props.deleteSkill} />
           </div>
         </div>
       </>

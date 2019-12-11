@@ -14,8 +14,9 @@ import './Landing.css';
 function Landing() {
   return (
     <div className="landing">
-      <h1>WAKE UP IT'S TIME TO SIN</h1>
-      <button>CLICK ME</button>
+      <h1>IT'S TIME TO ASCEND</h1>
+      <h2>Track your progress. Become an expert.</h2>
+      <button className="btn btn-primary btn-callToAction">EXPLORE</button>
     </div>
   )
 }

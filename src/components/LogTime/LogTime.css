@@ -4,4 +4,16 @@
   height: 50px;
   font-size: 18px;
   box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
+  background: rgba(0, 26, 97, 1);
+  border: rgba(0, 26, 97, 1);
+}
+
+.btn-logTime:hover {
+  background: rgba(0, 50, 189, 1);
+  border: rgba(0, 50, 189, 1);
+}
+
+.btn-logTime:active {
+  background: rgba(0, 50, 189, 1);
+  border: rgba(0, 50, 189, 1);
 }

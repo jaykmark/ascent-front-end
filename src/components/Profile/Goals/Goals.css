@@ -1,6 +1,6 @@
 .goalsList {
   width: 475px;
-  height: 75vh;
+  height: 77vh;
   overflow: auto;
   padding: 15px;
   box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
@@ -17,7 +17,7 @@
 }
 
 .goalsListHeader {
-  height: 75px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,12 +31,24 @@
   width: 25px;
   height: 25px;
   margin-left: 10px;
+  background: rgba(0, 87, 4, 1);
+  border: rgba(0, 87, 4, 1);
   box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
+}
+
+.btn-addGoal:hover {
+  background: rgba(0, 135, 7, 1);
+  border: rgba(0, 135, 7, 1);
+}
+
+.btn-addGoal:active {
+  background: rgba(0, 135, 7, 1);
+  border: rgba(0, 135, 7, 1);
 }
 
 .btn-addGoal p {
   font-size: 18px;
-  transform: translate(-2.5px, -6px);
+  transform: translate(-2px, -7px);
 }
 
 .goal-alert {
