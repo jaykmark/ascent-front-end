@@ -20,9 +20,10 @@ class ProfileContainer extends React.Component {
     }})
       .then(res => {
         const goals = this.grabGoals(res.data.data.skills);
+        const sortdSkill = res.data.data.skills.sort((a, b) => b.totalMinutes - a.totalMinutes);
         this.setState({
           user: res.data.data,
-          skills: res.data.data.skills.sort((a, b) => b.totalMinutes - a.totalMinutes),
+          skills: sortdSkill,
           goals: goals,
         })
       })

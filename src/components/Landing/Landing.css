@@ -11,6 +11,15 @@
   align-items: center;
 }
 
+.landing h1 {
+  font-family: 'Spectral';
+}
+
+.landing h2 {
+  font-family: 'Spectral';
+}
+
+
 .btn-callToAction {
   background: rgba(0, 87, 4, 1);
   border: rgba(0, 87, 4, 1);

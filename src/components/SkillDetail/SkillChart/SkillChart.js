@@ -40,7 +40,14 @@ class SkillChart extends React.Component {
         {
           label: 'Minutes',
           data: this.lastWeekLogTimes(this.props.skillDetail.logTimes),
-          backgroundColor: [
+          backgroundColor: [ 
+            '#072A40',
+            '#072A40',
+            '#072A40',
+            '#072A40',
+            '#072A40',
+            '#072A40',
+            '#072A40',
           ]
         }
       ]

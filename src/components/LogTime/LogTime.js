@@ -58,7 +58,7 @@ class LogTime extends React.Component {
                       required
                     />
                   </div>
-                  <button data-dismiss="modal" onClick={(event) => this.props.logTime(event, this.state)} className="btn btn-primary float-right" type="submit">
+                  <button data-dismiss="modal"onClick={(event) => this.props.logTime(event, this.state)} className="btn btn-primary float-right" type="submit">
                     Log Time
                   </button>
                 </form>

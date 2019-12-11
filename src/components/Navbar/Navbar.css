@@ -4,3 +4,7 @@
   background: #133E59;
   background: #072A40;
 }
+
+.navbar-brand {
+  font-family: 'Spectral';
+}
