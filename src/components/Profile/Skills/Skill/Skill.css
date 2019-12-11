@@ -32,10 +32,17 @@
   height: 100px;
   transition: 0.2s;
   box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
+  color: black;
 }
 
 .card-skill:hover {
   transform: scale(1.03);
+  text-decoration: none;
+}
+
+.card-body-skill a {
+  text-decoration: none;
+  color: black;
 }
 
 .card-title-skill {
@@ -46,3 +53,4 @@
 .card-text p {
   margin: 0;
 }
+

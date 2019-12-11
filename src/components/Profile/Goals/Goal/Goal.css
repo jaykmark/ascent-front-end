@@ -64,12 +64,20 @@
 
 .btn-editGoal {
   height: 25px;
-  width: 25px;
+  width: 40px;
   margin-left: auto;
   transform: translate(0px, -10px);
   box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
+  background: #072A40;
+  border: #072A40;
+}
+  
+.btn-editGoal:hover {
+  background: #0F5C8C;
+  border: #0F5C8C;
 }
 
 .btn-editGoal p {
-  transform: translate(-12px, -7px);
+  transform: translate(-8px, -6px);
 }
+

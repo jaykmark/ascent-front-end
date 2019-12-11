@@ -48,9 +48,13 @@
 
 .btn-addGoal p {
   font-size: 18px;
-  transform: translate(-2px, -7px);
+  transform: translate(-1px, -6px);
 }
 
 .goal-alert {
   text-align: center;
+}
+
+.dailyHeader {
+  margin-top: 25px;
 }

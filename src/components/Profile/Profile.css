@@ -5,7 +5,17 @@
   /* align-items: center; */
 }
 
+.profile {
+  background: url('../../assets/images/white-sand-national-monument.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 92vh; 
+}
+
 .profile h2 {
   text-align: center;
-  margin: 15px 0;
+  padding-top: 15px;
+  margin: 0 0 15px 0;
 }

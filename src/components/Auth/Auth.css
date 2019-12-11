@@ -17,3 +17,13 @@
   margin-top: 100px;
   width: 300px;
 }
+
+.btn-auth {
+  background: #072A40;
+  border: #072A40;
+}
+
+.btn-auth:hover {
+  background: #0F5C8C;
+  border: #0F5C8C;
+}

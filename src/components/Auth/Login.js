@@ -46,13 +46,13 @@ class Login extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
               {/* <label htmlFor="username">Username</label> */}
-              <input type="username" id="username" name="username" value={this.state.username} onChange={this.handleChange} className="form-control form-control-lg" placeholder="Username" />
+              <input type="username" id="username" name="username" value={this.state.username} onChange={this.handleChange} className="form-control form-control-lg" required placeholder="Username" />
             </div>
             <div className="form-group">
               {/* <label htmlFor="password">Password</label> */}
-              <input type="password" id="password" name="password" value={this.state.password} onChange={this.handleChange} className="form-control form-control-lg" placeholder="Password" />
+              <input type="password" id="password" name="password" value={this.state.password} onChange={this.handleChange} className="form-control form-control-lg" required placeholder="Password" />
             </div>
-            <button type="submit" className="btn btn-primary float-right">Login</button>
+            <button type="submit" className="btn btn-primary float-right btn-auth">Login</button>
           </form>
         </section>
       </div>

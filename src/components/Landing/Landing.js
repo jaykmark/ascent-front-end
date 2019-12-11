@@ -14,9 +14,9 @@ import './Landing.css';
 function Landing() {
   return (
     <div className="landing">
-      <h1>IT'S TIME TO ASCEND</h1>
-      <h2>Track your progress. Become an expert.</h2>
-      <button className="btn btn-primary btn-callToAction">EXPLORE</button>
+      <h1>TIME TO ASCEND</h1>
+      <h2>Track your skills. See your progress.</h2>
+      <a href="/register"><button className="btn btn-primary btn-callToAction">EXPLORE</button></a>
     </div>
   )
 }

@@ -22,6 +22,7 @@ class SkillDetail extends React.Component {
     const minutes = this.props.skillDetail.totalMinutes - (totalHours * 60);
     return (
       <>
+      <div className="skillDetail">
         <div className="container">
           <div className="skillDetailPage">
             <div className="skillDetailHeader">
@@ -40,10 +41,13 @@ class SkillDetail extends React.Component {
             <EditSkill skillDetail={this.props.skillDetail} editSkill={this.props.editSkill} />
             <p className="skillDetailDescription"><strong>Description:</strong> {description}</p>
             <p><strong>Notes:</strong> {notes}</p>
-            <SkillChart skillDetail={this.props.skillDetail} displayLogTimes={this.displayLogTimes} />
-            <DeleteSkill skillDetail={this.props.skillDetail} deleteSkill={this.props.deleteSkill} />
+            <div className="flex-it">
+              <DeleteSkill skillDetail={this.props.skillDetail} deleteSkill={this.props.deleteSkill} />
+              <SkillChart skillDetail={this.props.skillDetail} displayLogTimes={this.displayLogTimes} />
+            </div>
           </div>
         </div>
+      </div>
       </>
     )
   }

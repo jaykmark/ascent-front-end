@@ -1,4 +1,9 @@
 .btn-deleteSkill {
-  margin: 20px 0;
+  /* margin: 20px 0; */
+  display: block;
+  margin-left: auto;
+  width: 125px;
+  height: 30px;
   box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
+  transform: translateY(445px);
 }

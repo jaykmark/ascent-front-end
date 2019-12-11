@@ -22,7 +22,7 @@ class ProfileContainer extends React.Component {
         const goals = this.grabGoals(res.data.data.skills);
         this.setState({
           user: res.data.data,
-          skills: res.data.data.skills,
+          skills: res.data.data.skills.sort((a, b) => b.totalMinutes - a.totalMinutes),
           goals: goals,
         })
       })
@@ -44,7 +44,7 @@ class ProfileContainer extends React.Component {
     axios.post(`${process.env.REACT_APP_API_URL}/skills`, createdSkill) 
       .then(res => {
       this.setState({
-        skills: [...this.state.skills, res.data.data],
+        skills: [...this.state.skills, res.data.data].sort((a, b) => b.totalMinutes - a.totalMinutes),
       })
     })
       .catch(err => console.log(err));
@@ -98,7 +98,7 @@ class ProfileContainer extends React.Component {
             return goal._id !== res.data.data.goals._id;
           })
           this.setState({
-            skills: [...filteredSkills, res.data.data],
+            skills: [...filteredSkills, res.data.data].sort((a, b) => b.totalMinutes - a.totalMinutes),
             goals: [...filteredGoals, res.data.data.goals],
           })
         }
@@ -145,11 +145,13 @@ class ProfileContainer extends React.Component {
   
   render() {
     return (
-      <div className="container profile">
-        <h2>GIT GUD, {this.state.user.username}</h2>
-        <div className="profileBody">
-          {this.state.user._id && <Skills user={this.state.user} skills={this.state.skills} addSkill={this.addSkill} logTime={this.logTime} /> }
-          {this.state.user._id && <Goals user={this.state.user} skills={this.state.skills} goals={this.state.goals} addGoal={this.addGoal} logTime={this.logTime} editGoal={this.editGoal} deleteGoal={this.deleteGoal} /> }
+      <div className="profile">
+        <div className="container">
+          <h2>Greetings, {this.state.user.username}</h2>
+          <div className="profileBody">
+            {this.state.user._id && <Skills user={this.state.user} skills={this.state.skills} addSkill={this.addSkill} logTime={this.logTime} /> }
+            {this.state.user._id && <Goals user={this.state.user} skills={this.state.skills} goals={this.state.goals} addGoal={this.addGoal} logTime={this.logTime} editGoal={this.editGoal} deleteGoal={this.deleteGoal} /> }
+          </div>
         </div>
       </div>
     )

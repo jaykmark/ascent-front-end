@@ -64,16 +64,16 @@ class Goals extends React.Component {
       <>
         <div className="goalsList">
           <div className="goalsListHeader">
-            <h3>HERE YO GOALS</h3>
+            <h3>GOALS</h3>
             {this.props.skills.length ? <AddGoal skills={this.props.skills} addGoal={this.props.addGoal} /> : null}
           </div>
           {!this.props.skills.length ? <p className="goal-alert">Add a skill and make a goal for it!</p> : null}
-          {this.props.goals.length ? <h4>DAILY</h4> : null }
+          {this.props.goals.length ? <h4 className="dailyHeader">DAILY</h4> : null }
           {this.props.goals.length ? this.displayDailyGoals(this.props.goals) : null}
           {this.props.goals.length ? <h4>WEEKLY</h4> : null }
           {this.props.goals.length ? this.displayWeeklyGoals(this.props.goals) : null}
-          {this.props.goals.length ? <h4>MONTHLY</h4> : null}
-          {this.props.goals.length ? this.displayMonthlyGoals(this.props.goals) : null}
+          {/* {this.props.goals.length ? <h4>MONTHLY</h4> : null}
+          {this.props.goals.length ? this.displayMonthlyGoals(this.props.goals) : null} */}
         </div>
       </>
     )
