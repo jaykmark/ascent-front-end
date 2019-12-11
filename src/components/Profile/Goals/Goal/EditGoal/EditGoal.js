@@ -1,4 +1,5 @@
 import React from 'react';
+import '../Goal.css'
 
 class EditGoal extends React.Component {
   state = {
@@ -16,10 +17,9 @@ class EditGoal extends React.Component {
   render() {
     return (
       <>
-        <div className="col">
-            <button className="nav-item nav-link btn-primary btn-sm" type="button"
-            id="register" data-toggle="modal" data-target={`#editGoal-${this.props.goalDetail._id}`}>Edit</button>
-          </div>
+            <button className="nav-item nav-link btn-primary btn-sm btn-editGoal" type="button"
+            id="register" data-toggle="modal" data-target={`#editGoal-${this.props.goalDetail._id}`}><p>Edit</p></button>
+
           <div className="container">
             <div className="modal fade" id={`editGoal-${this.props.goalDetail._id}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div className="modal-dialog" role="document">

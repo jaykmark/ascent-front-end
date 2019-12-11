@@ -2,7 +2,8 @@ import React from 'react';
 
 class AddGoal extends React.Component {
   state = {
-    skill: this.props.skills[0]._id,
+    // How to grab only the default
+    skill: '',
     duration: '',
     frequency: 'Daily',
   };
@@ -16,10 +17,8 @@ class AddGoal extends React.Component {
   render() {
     return (
       <>
-        <div className="col">
-          <button className="nav-item nav-link btn-primary btn-sm" type="button"
-          id="register" data-toggle="modal" data-target="#addGoal">Add Goal</button>
-        </div>
+          <button className="btn btn-primary btn-sm btn-addGoal" type="button"
+          id="btn-addGoal" data-toggle="modal" data-target="#addGoal"><p>+</p></button>
             <div className="modal fade" id="addGoal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div className="modal-dialog" role="document">
                 <div className="modal-content">
@@ -35,9 +34,10 @@ class AddGoal extends React.Component {
                     <div className="form-group">
                       <label htmlFor="selectedSkill">Skill</label>
                       <select className="form-control" id="selectedSkill" name="skill" onChange={this.handleChange} value={this.state.skill}>
+                        <option></option>
                         {this.props.skills.map(skill => {
-                          return <option value={skill._id} key={skill._id}>{skill.name}</option>
-                        })}
+                            return !skill.goals ?  <option value={skill._id} key={skill._id}>{skill.name}</option> : null
+                            })}
                       </select>
                     </div>
                     <div className="form-group">

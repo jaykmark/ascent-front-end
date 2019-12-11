@@ -46,7 +46,6 @@ class ProfileContainer extends React.Component {
       this.setState({
         skills: [...this.state.skills, res.data.data],
       })
-      console.log(this.state.skills)
     })
       .catch(err => console.log(err));
   };
@@ -56,12 +55,24 @@ class ProfileContainer extends React.Component {
     // API POST Request - Create a goal and add to skill's model
     axios.post(`${process.env.REACT_APP_API_URL}/goals`, createdGoal)
       .then(res => {
-        const filteredGoals = this.state.goals.filter(goal => {
-          if (goal.skill._id !== res.data.data.skill) return goal;
-        })
-        this.setState({
-          goals: [...filteredGoals, res.data.data],
-        })
+        console.log(res.data.data);
+        if (this.state.goals.length) {
+          // console.log(this.state.goals)
+          // const filteredGoals = this.state.goals.filter(goal => {
+          //   console.log(goal.skill)
+          //   console.log(res.data.data.skill)
+          //   return goal.skill._id !== res.data.data.skill._id;
+          // })
+          // console.log(filteredGoals);
+          this.setState({
+            goals: [...this.state.goals, res.data.data],
+          })
+        } else {
+          this.setState({
+            goals: [res.data.data],
+          })
+          console.log(this.state.goals);
+        }
       })
       .catch(err => console.log(err));
   };
@@ -71,12 +82,27 @@ class ProfileContainer extends React.Component {
     // API POST Request - Create a LogTime and add to minutes Skill's Model
     axios.post(`${process.env.REACT_APP_API_URL}/logtimes`, logTime)
       .then(res => {
-        const filteredSkills = this.state.skills.filter(skill => {
-          if (skill._id !== res.data.data._id) return skill;
-        })
-        this.setState({
-          skills: [...filteredSkills, res.data.data],
-        })
+        console.log(res.data.data)
+        if (!res.data.data.goals) {
+          const filteredSkills = this.state.skills.filter(skill => {
+            return skill._id !== res.data.data._id;
+          });
+          this.setState({
+            skills: [...filteredSkills, res.data.data],
+          });
+        } else {
+          const filteredSkills = this.state.skills.filter(skill => {
+            return skill._id !== res.data.data._id;
+          })
+          const filteredGoals = this.state.goals.filter(goal => {
+            return goal._id !== res.data.data.goals._id;
+          })
+          this.setState({
+            skills: [...filteredSkills, res.data.data],
+            goals: [...filteredGoals, res.data.data.goals],
+          })
+        }
+        
       })
       .catch(err => console.log(err))
   };
@@ -87,8 +113,9 @@ class ProfileContainer extends React.Component {
     axios.put(`${process.env.REACT_APP_API_URL}/goals/${editedGoal.goal}`, editedGoal)
       .then(res => {
         const filteredGoals = this.state.goals.filter(goal => {
-          if (goal._id !== res.data.data._id) return goal;
+          return goal._id !== res.data.data._id;
         })
+        console.log(res.data.data);
         this.setState({
           goals: [...filteredGoals, res.data.data],
         })
@@ -101,24 +128,30 @@ class ProfileContainer extends React.Component {
     axios.delete(`${process.env.REACT_APP_API_URL}/goals/${deletedGoal}`, deletedGoal)
       .then(res => {
         const filteredGoals = this.state.goals.filter(goal => {
-          if (goal._id !== res.data.data._id) return goal;
+          return goal._id !== res.data.data._id;
         })
-        this.setState({
-          goals: [...filteredGoals, res.data.data],
+        if (filteredGoals.length) {
+          this.setState({
+            goals: [filteredGoals],
+          })
+        } else {
+          this.setState({
+            goals: [],
+          })
+        }
         })
-      })
       .catch(err => console.log(err))
   };
   
   render() {
     return (
-      <>
+      <div className="container profile">
         <h2>GIT GUD, {this.state.user.username}</h2>
         <div className="profileBody">
           {this.state.user._id && <Skills user={this.state.user} skills={this.state.skills} addSkill={this.addSkill} logTime={this.logTime} /> }
           {this.state.user._id && <Goals user={this.state.user} skills={this.state.skills} goals={this.state.goals} addGoal={this.addGoal} logTime={this.logTime} editGoal={this.editGoal} deleteGoal={this.deleteGoal} /> }
         </div>
-      </>
+      </div>
     )
   }
 

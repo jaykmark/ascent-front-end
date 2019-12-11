@@ -11,6 +11,7 @@ class SkillDetailContainer extends React.Component {
     const skillId = this.props.location.pathname.split('/')[2]
     axios.get(`${process.env.REACT_APP_API_URL}/skills/${skillId}`)
       .then(res => {
+        console.log(res.data.data)
         this.setState({
           skillDetail: res.data.data,
         })
@@ -31,10 +32,11 @@ class SkillDetailContainer extends React.Component {
   };
 
   editSkill = (event, editedSkill) => {
-    const skillId = editedSkill.id;
+    const skillId = editedSkill.skill;
     event.preventDefault();
     axios.put(`${process.env.REACT_APP_API_URL}/skills/${skillId}`, editedSkill)
       .then(res => {
+        console.log(res.data.data);
         this.setState({
           skillDetail: res.data.data,
         })
@@ -52,7 +54,7 @@ class SkillDetailContainer extends React.Component {
   render() {
     return (
       <>
-        {this.state.skillDetail && <SkillDetail skillDetail={this.state.skillDetail} logTime={this.logTime} editSkill={this.editSkill}deleteSkill={this.deleteSkill} /> }
+        {this.state.skillDetail && <SkillDetail skillDetail={this.state.skillDetail} logTime={this.logTime} editSkill={this.editSkill} deleteSkill={this.deleteSkill} /> }
       </>
     )
   }

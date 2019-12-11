@@ -2,21 +2,47 @@ import React from 'react';
 import LogTime from '../LogTime/LogTime';
 import EditSkill from './EditSkill/EditSkill';
 import DeleteSkill from './DeleteSkill/DeleteSkill';
+import SkillChart from './SkillChart/SkillChart';
+import './SkillDetail.css';
 
-function SkillDetail(props) {
-  const { name, description, notes, totalMinutes } = props.skillDetail;
-  return (
-    <>
-      <div>
-        <h3>{name}: {totalMinutes} mins</h3>
-        <LogTime skillDetail={props.skillDetail} logTime={props.logTime} />
-      </div>
-      <EditSkill skillDetail={props.skillDetail} editSkill={props.editSkill}/>
-      <p>Description: {description}</p>
-      <p>Notes: {notes}</p>
-      <DeleteSkill skillDetail={props.skillDetail} deleteSkill={props.deleteSkill}/>
-    </>
-  )
+class SkillDetail extends React.Component {
+  displayLogTimes = (logTimes) => {
+    return (
+      logTimes.map(logTime => {
+        return (
+          <div key={logTime._id}>{logTime.minutes} mins on {logTime.date}</div>
+        );
+      })
+    )
+  };
+
+  render() {
+    const { name, description, notes } = this.props.skillDetail;
+    const totalHours = Math.floor(this.props.skillDetail.totalMinutes / 60);
+    const minutes = this.props.skillDetail.totalMinutes - (totalHours * 60);
+    return (
+      <>
+        <div className="container">
+          <div className="skillDetailPage">
+            <div className="skillDetailHeader">
+              <h3>{name}</h3>
+              <div className="skillDetailTotalMinutes">
+                {totalHours} hours {minutes} mins
+                <LogTime skillDetail={this.props.skillDetail} logTime={this.props.logTime} />
+              </div>
+            </div>
+          <EditSkill skillDetail={this.props.skillDetail} editSkill={this.props.editSkill} />
+          <p><strong>Description:</strong> {description}</p>
+          <p><strong>Notes:</strong> {notes}</p>
+          <SkillChart skillDetail={this.props.skillDetail} displayLogTimes={this.displayLogTimes} />
+          <DeleteSkill skillDetail={this.props.skillDetail} deleteSkill={this.props.deleteSkill} />
+          </div>
+        </div>
+      </>
+    )
+  }
 }
+
+
 
 export default SkillDetail;

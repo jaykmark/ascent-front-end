@@ -1,19 +1,20 @@
 import React from 'react';
 import ConfirmDeleteSkill from './ConfirmDeleteSkill/ConfirmDeleteSkill';
+import './DeleteSkill.css';
 
 const DeleteSkill = props => {
   return (
     <>
     <button 
       type="button"
-      className="btn btn-success btn-sm post-delete-button float-right justify-content-end"
+      className="btn btn-outline-danger btn-sm btn-deleteSkill float-right justify-content-end"
       data-toggle="modal"
-      data-target="#deletePostModal">
+      data-target="#deleteSkillModal">
           DELETE SKILL
     </button>
     <div
     className="modal fade"
-    id="deletePostModal"
+    id="deleteSkillModal"
     tabIndex="-1"
     role="dialog"
     aria-labelledby="deletePostModalLabel"

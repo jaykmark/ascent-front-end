@@ -1,3 +1,41 @@
 .goalsList {
-  width: 500px;
+  width: 430px;
+  height: 75vh;
+  overflow: auto;
+  /* padding: 15px; */
+}
+
+.goalsList h3 {
+  margin: 0;
+}
+
+.goalsList h4 {
+  text-align: center;
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+
+.goalsListHeader {
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .goalsListHeader button {
+  height: 40px;
+} */
+
+.btn-addGoal {
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+}
+
+.btn-addGoal p {
+  transform: translate(-1px, -3px);
+}
+
+.goal-alert {
+  text-align: center;
 }

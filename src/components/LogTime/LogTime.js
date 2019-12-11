@@ -1,4 +1,5 @@
 import React from 'react';
+import './LogTime.css';
 
 class LogTime extends React.Component {
   state = {
@@ -11,21 +12,22 @@ class LogTime extends React.Component {
     this.setState({
       [event.target.name]: event.target.value,
     })
-  }
+  };
 
   render () {
     return (
       <>
-      <div className="col">
-          <button className="nav-item nav-link btn-primary btn-sm" type="button"
-          id="register" data-toggle="modal" data-target={`#addLogTime-${this.props.skillDetail._id}`}>Log Time</button>
-        </div>
-        <div className="container">
-          <div className="modal fade" id={`addLogTime-${this.props.skillDetail._id}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div className="modal-dialog" role="document">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalLabel">Log Time for {this.props.skillDetail.name}</h5>
+        {/* MODAL BUTTON */}
+
+            {/* <button href="#" class="btn btn-primary float-right mt-4">Go somewhere</button> */}
+            <button className="btn-primary btn-sm btn btn-logTime" type="button"
+            id="btn-logTime" data-toggle="modal" data-target={`#addLogTime-${this.props.skillDetail._id}`}>LOG TIME</button>
+        {/* MODAL BODY */}
+        <div className="modal fade" id={`addLogTime-${this.props.skillDetail._id}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">Log Time for {this.props.skillDetail.name}</h5>
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -62,10 +64,10 @@ class LogTime extends React.Component {
                   </button>
                 </form>
               </div>
+
             </div>
           </div>
         </div>
-      </div>
       </>
     )
   }

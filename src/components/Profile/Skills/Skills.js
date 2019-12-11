@@ -15,8 +15,10 @@ class Skills extends React.Component {
   render() {
     return(
       <div className="skillsList">
-        <h3>HERE YO SKILLS</h3>
-        <AddSkill user={this.props.user} addSkill={this.props.addSkill} />
+        <div className="skillsListHeader">
+          <h3>HERE YO SKILLS</h3>
+          <AddSkill user={this.props.user} addSkill={this.props.addSkill} />
+        </div>
         {this.props.skills && this.displaySkills(this.props.skills)}
       </div>
     )
