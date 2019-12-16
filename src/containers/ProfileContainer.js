@@ -30,7 +30,7 @@ class ProfileContainer extends React.Component {
       .catch(err => console.log(err));
   };
 
-  // Loop through each skill and grab the goals to consolidate in one array.
+  // Loop through each skill and grab the goals to consolidate into one array.
   grabGoals = (skills) => {
     const goalsArr = [];
     skills.forEach(skill => {
@@ -56,15 +56,7 @@ class ProfileContainer extends React.Component {
     // API POST Request - Create a goal and add to skill's model
     axios.post(`${process.env.REACT_APP_API_URL}/goals`, createdGoal)
       .then(res => {
-        console.log(res.data.data);
         if (this.state.goals.length) {
-          // console.log(this.state.goals)
-          // const filteredGoals = this.state.goals.filter(goal => {
-          //   console.log(goal.skill)
-          //   console.log(res.data.data.skill)
-          //   return goal.skill._id !== res.data.data.skill._id;
-          // })
-          // console.log(filteredGoals);
           this.setState({
             goals: [...this.state.goals, res.data.data],
           })
@@ -72,7 +64,6 @@ class ProfileContainer extends React.Component {
           this.setState({
             goals: [res.data.data],
           })
-          console.log(this.state.goals);
         }
       })
       .catch(err => console.log(err));
@@ -83,7 +74,6 @@ class ProfileContainer extends React.Component {
     // API POST Request - Create a LogTime and add to minutes Skill's Model
     axios.post(`${process.env.REACT_APP_API_URL}/logtimes`, logTime)
       .then(res => {
-        console.log(res.data.data)
         if (!res.data.data.goals) {
           const filteredSkills = this.state.skills.filter(skill => {
             return skill._id !== res.data.data._id;
@@ -116,7 +106,6 @@ class ProfileContainer extends React.Component {
         const filteredGoals = this.state.goals.filter(goal => {
           return goal._id !== res.data.data._id;
         })
-        console.log(res.data.data);
         this.setState({
           goals: [...filteredGoals, res.data.data],
         })
@@ -157,7 +146,6 @@ class ProfileContainer extends React.Component {
       </div>
     )
   }
-
 }
 
 export default ProfileContainer;

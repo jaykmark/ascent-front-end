@@ -22,32 +22,28 @@ class SkillDetail extends React.Component {
     const minutes = this.props.skillDetail.totalMinutes - (totalHours * 60);
     return (
       <>
-      <div className="skillDetail">
-        <div className="container">
-          <div className="skillDetailPage">
-            <div className="skillDetailHeader">
-              <h3>{name}</h3>
-              <div className="card card-skill-detail">
-                <div className="card-body card-body-skill">
-                    <h5 className="card-title card-title-skill">{totalHours} hours {minutes > 0 ? `${minutes} mins` : null}</h5>
-                    <LogTime skillDetail={this.props.skillDetail} logTime={this.props.logTime} />
+        <div className="skillDetail">
+          <div className="container">
+            <div className="skillDetailPage">
+              <div className="skillDetailHeader">
+                <h3>{name}</h3>
+                <div className="card card-skill-detail">
+                  <div className="card-body card-body-skill">
+                      <h5 className="card-title card-title-skill">{totalHours} hours {minutes > 0 ? `${minutes} mins` : null}</h5>
+                      <LogTime skillDetail={this.props.skillDetail} logTime={this.props.logTime} />
+                  </div>
                 </div>
               </div>
-              {/* <div className="skillDetailTotalMinutes">
-                {totalHours} hours {minutes} mins
-                <LogTime skillDetail={this.props.skillDetail} logTime={this.props.logTime} />
-              </div> */}
-            </div>
-            <EditSkill skillDetail={this.props.skillDetail} editSkill={this.props.editSkill} />
-            <p className="skillDetailDescription"><strong>Description:</strong> {description}</p>
-            <p><strong>Notes:</strong> {notes}</p>
-            <div className="flex-it">
-              <DeleteSkill skillDetail={this.props.skillDetail} deleteSkill={this.props.deleteSkill} />
-              <SkillChart skillDetail={this.props.skillDetail} displayLogTimes={this.displayLogTimes} />
+              <EditSkill skillDetail={this.props.skillDetail} editSkill={this.props.editSkill} />
+              <p className="skillDetailDescription"><strong>Description:</strong> {description}</p>
+              <p><strong>Notes:</strong> {notes}</p>
+              <div className="flex-it">
+                <DeleteSkill skillDetail={this.props.skillDetail} deleteSkill={this.props.deleteSkill} />
+                <SkillChart skillDetail={this.props.skillDetail} displayLogTimes={this.displayLogTimes} />
+              </div>
             </div>
           </div>
         </div>
-      </div>
       </>
     )
   }
