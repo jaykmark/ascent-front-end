@@ -20,10 +20,10 @@ class ProfileContainer extends React.Component {
     }})
       .then(res => {
         const goals = this.grabGoals(res.data.data.skills);
-        const sortdSkill = res.data.data.skills.sort((a, b) => b.totalMinutes - a.totalMinutes);
+        const sortedSkills = res.data.data.skills.sort((a, b) => b.totalMinutes - a.totalMinutes);
         this.setState({
           user: res.data.data,
-          skills: sortdSkill,
+          skills: sortedSkills,
           goals: goals,
         })
       })
@@ -44,8 +44,9 @@ class ProfileContainer extends React.Component {
     // API POST Request - Create a skill and add to user's model
     axios.post(`${process.env.REACT_APP_API_URL}/skills`, createdSkill) 
       .then(res => {
-      this.setState({
-        skills: [...this.state.skills, res.data.data].sort((a, b) => b.totalMinutes - a.totalMinutes),
+        const sortedSkills = [...this.state.skills, res.data.data].sort((a, b) => b.totalMinutes - a.totalMinutes);
+        this.setState({
+          skills: sortedSkills,
       })
     })
       .catch(err => console.log(err));
@@ -74,26 +75,28 @@ class ProfileContainer extends React.Component {
     // API POST Request - Create a LogTime and add to minutes Skill's Model
     axios.post(`${process.env.REACT_APP_API_URL}/logtimes`, logTime)
       .then(res => {
+        
         if (!res.data.data.goals) {
           const filteredSkills = this.state.skills.filter(skill => {
             return skill._id !== res.data.data._id;
           });
+          const sortedSkills = [...filteredSkills, res.data.data].sort((a, b) => b.totalMinutes - a.totalMinutes)
           this.setState({
-            skills: [...filteredSkills, res.data.data],
+            skills: sortedSkills,
           });
         } else {
           const filteredSkills = this.state.skills.filter(skill => {
             return skill._id !== res.data.data._id;
           })
+          const sortedSkills = [...filteredSkills, res.data.data].sort((a, b) => b.totalMinutes - a.totalMinutes)
           const filteredGoals = this.state.goals.filter(goal => {
             return goal._id !== res.data.data.goals._id;
           })
           this.setState({
-            skills: [...filteredSkills, res.data.data].sort((a, b) => b.totalMinutes - a.totalMinutes),
+            skills: sortedSkills,
             goals: [...filteredGoals, res.data.data.goals],
           })
         }
-        
       })
       .catch(err => console.log(err))
   };
