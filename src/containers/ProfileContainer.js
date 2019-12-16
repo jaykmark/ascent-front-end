@@ -123,9 +123,9 @@ class ProfileContainer extends React.Component {
         const filteredGoals = this.state.goals.filter(goal => {
           return goal._id !== res.data.data._id;
         })
-        if (filteredGoals.length) {
+        if (filteredGoals.length > 0) {
           this.setState({
-            goals: [filteredGoals],
+            goals: filteredGoals,
           })
         } else {
           this.setState({

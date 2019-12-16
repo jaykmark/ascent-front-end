@@ -68,8 +68,6 @@ class Goals extends React.Component {
           {this.props.goals.length ? this.displayDailyGoals(this.props.goals) : null}
           {this.props.goals.length ? <h4>WEEKLY</h4> : null }
           {this.props.goals.length ? this.displayWeeklyGoals(this.props.goals) : null}
-          {/* {this.props.goals.length ? <h4>MONTHLY</h4> : null}
-          {this.props.goals.length ? this.displayMonthlyGoals(this.props.goals) : null} */}
         </div>
       </>
     )

@@ -34,8 +34,10 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Navbar currentUser={this.state.currentUser} logout={this.logout} />
-        <Routes currentUser={this.state.currentUser} setCurrentUser={this.setCurrentUser} />
+        <div className="background">
+          <Navbar currentUser={this.state.currentUser} logout={this.logout} />
+          <Routes currentUser={this.state.currentUser} setCurrentUser={this.setCurrentUser} />
+        </div>
       </>
     );
   }

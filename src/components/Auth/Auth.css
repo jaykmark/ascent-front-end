@@ -6,24 +6,6 @@
   align-items: center;
 }
 
-.login-screen {
-  background: url('../../assets/images/ascent-background.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  min-height: 92vh;
-}
-
-.register-screen {
-  background: url('../../assets/images/ascent-background.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  min-height: 92vh;
-}
-
 #login {
   margin-top: 100px;
   width: 300px;
@@ -32,9 +14,17 @@
   border-style: none;
 }
 
+#login h2 {
+  font-family: 'Spectral';
+}
+
 .register {
   margin-top: 100px;
   width: 300px;
+}
+
+.register h2 {
+  font-family: 'Spectral';
 }
 
 .btn-auth {

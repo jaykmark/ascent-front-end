@@ -1,9 +1,4 @@
 .landing {
-  background: url('../../assets/images/ascent-background.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   min-height: 92vh;
   display: flex;
   flex-direction: column;

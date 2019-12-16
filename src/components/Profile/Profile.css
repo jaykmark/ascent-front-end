@@ -4,15 +4,6 @@
   justify-content: space-evenly;
 }
 
-.profile {
-  background: url('../../assets/images/ascent-background.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  min-height: 92vh; 
-}
-
 .profile h2 {
   text-align: center;
   padding-top: 15px;
