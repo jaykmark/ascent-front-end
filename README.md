@@ -5,6 +5,16 @@ Live Site - https://ascent-app.herokuapp.com/
 
 Back-End Repo - https://github.com/jaykmark/ascent-back-end
 
+<p align="center">
+  <img src="./src/assets/images/ascent-home-page-example.png" alt="Ascent Home Page"
+	title="Ascent Home Page" align="center" width="600" />
+</p>
+
+<p align="center">
+  <img src="./src/assets/images/ascent-skill-detail-example.png" alt="Ascent Skill Detail Page"
+	title="Ascent Skill Detail Page" align="center" width="600" />
+</p>
+  
 ## Technology Stack
 ### **React, Node.js, Express, Mongoose**
 
@@ -34,4 +44,4 @@ To Visit App:
 
 ## Future Developments
 - Incorporate React Moment
-- Add a timer feature
+- Add a timer
