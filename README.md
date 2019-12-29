@@ -1,5 +1,5 @@
 # Ascent
-**An application to track your skills. Add daily/weekly goals. See your progress over time.**
+*An application to track your skills. Add daily/weekly goals. See your progress over time.*
 
 **Live Site - https://ascent-app.herokuapp.com/**
 
