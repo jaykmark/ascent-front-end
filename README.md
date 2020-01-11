@@ -26,8 +26,11 @@ Hone your skills. Track your progress. This app is geared towards those that str
 ## Installation & Set Up
 Clone down this repository:
 
-`$ git clone https://github.com/jaykmark/ascent-front-end.git`
-`cd ascent-front-end`
+```
+$ git clone https://github.com/jaykmark/ascent-front-end.git
+
+$ cd ascent-front-end
+```
 
 You will need `node` and `npm` installed globally on your machine.  
 
