@@ -7,7 +7,7 @@ class SkillDetailContainer extends React.Component {
     skillDetail: ''
   };
 
-  componentDidMount(){
+  componentDidMount() {
     const skillId = this.props.location.pathname.split('/')[2]
     axios.get(`${process.env.REACT_APP_API_URL}/skills/${skillId}`)
       .then(res => {
@@ -52,7 +52,7 @@ class SkillDetailContainer extends React.Component {
   render() {
     return (
       <>
-        {this.state.skillDetail && <SkillDetail skillDetail={this.state.skillDetail} logTime={this.logTime} editSkill={this.editSkill} deleteSkill={this.deleteSkill} /> }
+        {this.state.skillDetail && <SkillDetail skillDetail={this.state.skillDetail} logTime={this.logTime} editSkill={this.editSkill} deleteSkill={this.deleteSkill} />}
       </>
     )
   }

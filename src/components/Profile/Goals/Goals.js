@@ -6,13 +6,29 @@ import './Goals.css'
 class Goals extends React.Component {
   displayDailyGoals = (goals) => {
     // Go through array of goals set in state
+    const now = new Date();
+    let year = now.getFullYear().toString();
+    let month = parseInt(now.getMonth() + 1).toString();
+    let date = now.getDate().toString();
+
+    // Add leading zeroes to single digits
+    if (month.length === 1) {
+      month = `0${month}`;
+    }
+
+    if (date.length === 1) {
+      date = `0${date}`;
+    }
+
+    let nowFormattedDate = `${year}-${month}-${date}`;
+
     return goals.map(goal => {
       // Filter by Frequency of Daily
       if (goal.frequency === "Daily") {
         let completed = false;
         if (goal.skill && goal.skill.logTimes.length) {
           goal.skill.logTimes.forEach(logTime => {
-            if (logTime.date.substr(0,10) === new Date().toISOString().substr(0,10)) {
+            if (logTime.date.substr(0, 10) === nowFormattedDate) {
               return completed = true;
             }
           });
@@ -34,7 +50,7 @@ class Goals extends React.Component {
         if (goal.skill && goal.skill.logTimes.length) {
           // Go through each log time and see if it has been within the last week
           goal.skill.logTimes.forEach(logTime => {
-            if (Date.now() -  Date.parse(logTime.date) < 604800000) {
+            if (Date.now() - Date.parse(logTime.date) < 604800000) {
               return completed = true;
             }
           })
@@ -64,9 +80,9 @@ class Goals extends React.Component {
             {this.props.skills.length ? <AddGoal skills={this.props.skills} addGoal={this.props.addGoal} /> : null}
           </div>
           {!this.props.skills.length ? <p className="goal-alert">Add a skill and make a goal for it!</p> : null}
-          {this.props.goals.length ? <h4 className="dailyHeader">DAILY</h4> : null }
+          {this.props.goals.length ? <h4 className="dailyHeader">DAILY</h4> : null}
           {this.props.goals.length ? this.displayDailyGoals(this.props.goals) : null}
-          {this.props.goals.length ? <h4>WEEKLY</h4> : null }
+          {this.props.goals.length ? <h4>WEEKLY</h4> : null}
           {this.props.goals.length ? this.displayWeeklyGoals(this.props.goals) : null}
         </div>
       </>
