@@ -78,7 +78,9 @@ class SkillChart extends React.Component {
             mainAspectRatio: false,
             scales: {
               yAxes: [{
-                offset: false,
+                ticks: {
+                  min: 0
+                }
               }]
             }
           }}
