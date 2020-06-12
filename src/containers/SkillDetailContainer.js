@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import SkillDetail from '../components/SkillDetail/SkillDetail';
-import loadingGif from '../assets/images/loading.gif';
+import loadingSvg from '../assets/images/loading.svg';
 
 class SkillDetailContainer extends React.Component {
   state = {
@@ -55,11 +55,11 @@ class SkillDetailContainer extends React.Component {
   render() {
     return (
       <>
-        {this.state.loading && (
+        {this.state.loading &&
           <div className="loadingContainer">
-            <img src={loadingGif} alt="loading" />
+            <img src={loadingSvg} alt="loading" />
           </div>
-        )}
+        }
         {this.state.skillDetail && <SkillDetail skillDetail={this.state.skillDetail} logTime={this.logTime} editSkill={this.editSkill} deleteSkill={this.deleteSkill} />}
       </>
     )

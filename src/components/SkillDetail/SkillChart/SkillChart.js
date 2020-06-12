@@ -75,7 +75,12 @@ class SkillChart extends React.Component {
           width={100}
           height={50}
           options={{
-            mainAspectRatio: false
+            mainAspectRatio: false,
+            scales: {
+              yAxes: [{
+                offset: false,
+              }]
+            }
           }}
         />
       </div>

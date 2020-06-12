@@ -4,7 +4,7 @@ import axios from "axios";
 import Skills from "../components/Profile/Skills/Skills";
 import Goals from "../components/Profile/Goals/Goals";
 
-import loadingGif from '../assets/images/loading.gif'
+import loadingSvg from '../assets/images/loading.svg'
 import "../components/Profile/Profile.css";
 
 class ProfileContainer extends React.Component {
@@ -166,7 +166,7 @@ class ProfileContainer extends React.Component {
         <div className="container">
           {this.state.loading && (
             <div className="loadingContainer">
-              <img src={loadingGif} alt="loading" />
+              <img src={loadingSvg} alt="loading" />
             </div>
           )}
           {this.state.user._id && (

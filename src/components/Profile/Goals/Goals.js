@@ -72,6 +72,9 @@ class Goals extends React.Component {
   };
 
   render() {
+    const dailyGoals = this.displayDailyGoals(this.props.goals);
+    console.log(dailyGoals);
+
     return (
       <>
         <div className="goalsList">
