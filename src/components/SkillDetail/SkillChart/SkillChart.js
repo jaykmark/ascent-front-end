@@ -11,14 +11,12 @@ class SkillChart extends React.Component {
       const formattedDate = splitDate[0] + '/' + splitDate[1] + '/' + splitDate[2]
       chartLabels.unshift(formattedDate.split(',')[0])
     }
-    return chartLabels
+    return chartLabels;
   }
 
   // Loop through last week of log times
   lastWeekLogTimes(logTimes) {
     const chartData = [];
-
-
     for (let i = 0; i < 7; i++) {
       // Get now data
       const now = new Date();

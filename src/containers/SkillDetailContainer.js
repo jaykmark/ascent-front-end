@@ -1,10 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 import SkillDetail from '../components/SkillDetail/SkillDetail';
+import loadingGif from '../assets/images/loading.gif';
 
 class SkillDetailContainer extends React.Component {
   state = {
-    skillDetail: ''
+    loading: true,
+    skillDetail: '',
   };
 
   componentDidMount() {
@@ -13,6 +15,7 @@ class SkillDetailContainer extends React.Component {
       .then(res => {
         this.setState({
           skillDetail: res.data.data,
+          loading: false,
         })
       })
       .catch(err => console.log(err))
@@ -52,6 +55,11 @@ class SkillDetailContainer extends React.Component {
   render() {
     return (
       <>
+        {this.state.loading && (
+          <div className="loadingContainer">
+            <img src={loadingGif} alt="loading" />
+          </div>
+        )}
         {this.state.skillDetail && <SkillDetail skillDetail={this.state.skillDetail} logTime={this.logTime} editSkill={this.editSkill} deleteSkill={this.deleteSkill} />}
       </>
     )

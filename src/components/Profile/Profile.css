@@ -10,3 +10,10 @@
   margin: 0 0 15px 0;
   font-family: 'Spectral';
 }
+
+.loadingContainer {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

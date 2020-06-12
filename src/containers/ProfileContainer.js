@@ -4,13 +4,15 @@ import axios from "axios";
 import Skills from "../components/Profile/Skills/Skills";
 import Goals from "../components/Profile/Goals/Goals";
 
+import loadingGif from '../assets/images/loading.gif'
 import "../components/Profile/Profile.css";
 
 class ProfileContainer extends React.Component {
   state = {
     user: {},
     skills: [],
-    goals: []
+    goals: [],
+    loading: true,
   };
 
   componentDidMount() {
@@ -29,14 +31,15 @@ class ProfileContainer extends React.Component {
         this.setState({
           user: res.data.data,
           skills: sortedSkills,
-          goals: goals
+          goals: goals,
+          loading: false,
         });
       })
       .catch(err => console.log(err));
   }
 
   // Loop through each skill and grab the goals to consolidate into one array.
-  grabGoals = skills => {
+  grabGoals = (skills) => {
     const goalsArr = [];
     skills.forEach(skill => {
       if (skill.goals) goalsArr.push(skill.goals);
@@ -161,28 +164,33 @@ class ProfileContainer extends React.Component {
     return (
       <div className="profile">
         <div className="container">
-          <h2>Greetings, {this.state.user.username}</h2>
-          <div className="profileBody">
-            {this.state.user._id && (
-              <Skills
-                user={this.state.user}
-                skills={this.state.skills}
-                addSkill={this.addSkill}
-                logTime={this.logTime}
-              />
-            )}
-            {this.state.user._id && (
-              <Goals
-                user={this.state.user}
-                skills={this.state.skills}
-                goals={this.state.goals}
-                addGoal={this.addGoal}
-                logTime={this.logTime}
-                editGoal={this.editGoal}
-                deleteGoal={this.deleteGoal}
-              />
-            )}
-          </div>
+          {this.state.loading && (
+            <div className="loadingContainer">
+              <img src={loadingGif} alt="loading" />
+            </div>
+          )}
+          {this.state.user._id && (
+            <>
+              <h2>Greetings, {this.state.user.username}</h2>
+              <div className="profileBody">
+                <Skills
+                  user={this.state.user}
+                  skills={this.state.skills}
+                  addSkill={this.addSkill}
+                  logTime={this.logTime}
+                />
+                <Goals
+                  user={this.state.user}
+                  skills={this.state.skills}
+                  goals={this.state.goals}
+                  addGoal={this.addGoal}
+                  logTime={this.logTime}
+                  editGoal={this.editGoal}
+                  deleteGoal={this.deleteGoal}
+                />
+              </div>
+            </>
+          )}
         </div>
       </div>
     );
