@@ -40,11 +40,9 @@ class ProfileContainer extends React.Component {
 
   // Loop through each skill and grab the goals to consolidate into one array.
   grabGoals = (skills) => {
-    const goalsArr = [];
-    skills.forEach(skill => {
-      if (skill.goals) goalsArr.push(skill.goals);
+    return skills.map((skill) => {
+      return skill.goals
     });
-    return goalsArr;
   };
 
   addSkill = (event, createdSkill) => {
@@ -53,7 +51,8 @@ class ProfileContainer extends React.Component {
     axios
       .post(`${process.env.REACT_APP_API_URL}/skills`, createdSkill)
       .then(res => {
-        const sortedSkills = [...this.state.skills, res.data.data].sort(
+        const sortedSkills = [...this.state.skills, res.data.data]
+        sortedSkills.sort(
           (a, b) => b.totalMinutes - a.totalMinutes
         );
         this.setState({
