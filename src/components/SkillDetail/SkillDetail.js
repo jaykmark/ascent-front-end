@@ -19,6 +19,7 @@ class SkillDetail extends React.Component {
   render() {
     const { name, description, notes } = this.props.skillDetail;
     const totalHours = Math.floor(this.props.skillDetail.totalMinutes / 60);
+    const totalHoursFormatted = totalHours.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     const minutes = this.props.skillDetail.totalMinutes - (totalHours * 60);
     return (
       <>
@@ -29,8 +30,8 @@ class SkillDetail extends React.Component {
                 <h3>{name}</h3>
                 <div className="card card-skill-detail">
                   <div className="card-body card-body-skill">
-                      <h5 className="card-title card-title-skill">{totalHours} hours {minutes > 0 ? `${minutes} mins` : null}</h5>
-                      <LogTime skillDetail={this.props.skillDetail} logTime={this.props.logTime} />
+                    <h5 className="card-title card-title-skill">{totalHoursFormatted} hours {minutes > 0 ? `${minutes} mins` : null}</h5>
+                    <LogTime skillDetail={this.props.skillDetail} logTime={this.props.logTime} />
                   </div>
                 </div>
               </div>
