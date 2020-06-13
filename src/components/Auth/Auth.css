@@ -32,7 +32,7 @@
   border: #072A40;
 }
 
-.btn-auth:hover {
+.btn-auth:hover, .btn-auth:focus, .btn-auth:active {
   background: #0F5C8C;
   border: #0F5C8C;
 }

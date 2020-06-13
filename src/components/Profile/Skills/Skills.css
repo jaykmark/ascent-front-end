@@ -35,16 +35,10 @@
   box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
 }
 
-.btn-addSkill:hover {
+.btn-addSkill:hover, .btn-addSkill:active,.btn-addSkill:focus {
   background: rgba(0, 135, 7, 1);
   border: rgba(0, 135, 7, 1);
 }
-
-.btn-addSkill:active {
-  background: rgba(0, 135, 7, 1);
-  border: rgba(0, 135, 7, 1);
-}
-
 
 .btn-addSkill p {
   font-size: 18px;

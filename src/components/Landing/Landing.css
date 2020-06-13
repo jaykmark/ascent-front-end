@@ -38,3 +38,10 @@
   border: red;
   border: rgba(0, 135, 7, 1);
 }
+
+.btn-callToAction:hover {
+  background: rgba(0, 135, 7, 1);
+  border: rgba(0, 135, 7, 1);
+  background: red;
+  border: red;
+}

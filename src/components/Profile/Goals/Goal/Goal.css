@@ -38,12 +38,7 @@
   border: rgba(0, 87, 4, 1);
 }
 
-.btn-complete:hover {
-  background: rgba(0, 135, 7, 1);
-  border: rgba(0, 135, 7, 1);
-}
-
-.btn-complete:active {
+.btn-complete:hover, .btn-complete:active, .btn-complete:focus {
   background: rgba(0, 135, 7, 1);
   border: rgba(0, 135, 7, 1);
 }
@@ -70,8 +65,8 @@
   background: #072A40;
   border: #072A40;
 }
-  
-.btn-editGoal:hover {
+
+.btn-editGoal:hover, .btn-editGoal:active, .btn-editGoal:focus {
   background: #0F5C8C;
   border: #0F5C8C;
 }

@@ -10,14 +10,7 @@
   border: #072A40;
 }
 
-.btn-logTime:hover {
-  background: rgb(13, 14, 17);
-  border: rgba(0, 50, 189, 1);
+.btn-logTime:hover, .btn-logTime:active, .btn-logTime:focus  {
   background: #0F5C8C;
   border: #0F5C8C;
-}
-
-.btn-logTime:active {
-  background: rgba(0, 50, 189, 1);
-  border: rgba(0, 50, 189, 1);
 }

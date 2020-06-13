@@ -35,12 +35,7 @@
   box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
 }
 
-.btn-addGoal:hover {
-  background: rgba(0, 135, 7, 1);
-  border: rgba(0, 135, 7, 1);
-}
-
-.btn-addGoal:active {
+.btn-addGoal:hover, .btn-addGoal:active, .btn-addGoal:focus {
   background: rgba(0, 135, 7, 1);
   border: rgba(0, 135, 7, 1);
 }
