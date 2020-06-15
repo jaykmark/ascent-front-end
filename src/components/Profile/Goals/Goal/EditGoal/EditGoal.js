@@ -17,20 +17,20 @@ class EditGoal extends React.Component {
   render() {
     return (
       <>
-            <button className="nav-item nav-link btn-primary btn-sm btn-editGoal" type="button"
-            id="register" data-toggle="modal" data-target={`#editGoal-${this.props.goalDetail._id}`}><p>Edit</p></button>
+        <button className="nav-item nav-link btn-primary btn-sm btn-editGoal" type="button"
+          id="register" data-toggle="modal" data-target={`#editGoal-${this.props.goalDetail._id}`}><p>Edit</p></button>
 
-          <div className="container">
-            <div className="modal fade" id={`editGoal-${this.props.goalDetail._id}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div className="modal-dialog" role="document">
-                <div className="modal-content">
-                  <div className="modal-header">
-                    <h5 className="modal-title" id="exampleModalLabel">Edit Goal for {this.props.goalDetail.skill.name}</h5>
+        <div className="container">
+          <div className="modal fade" id={`editGoal-${this.props.goalDetail._id}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal-dialog" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="exampleModalLabel">Edit Goal for {this.props.goalDetail.skill.name}</h5>
                   <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                
+
                 <div className="modal-body">
                   <form>
                     <div className="form-group">

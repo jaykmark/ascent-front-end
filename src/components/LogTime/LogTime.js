@@ -5,7 +5,7 @@ class LogTime extends React.Component {
   state = {
     skill: this.props.skillDetail._id,
     minutes: '',
-    date: Date.now,
+    date: '',
   };
 
   handleChange = (event) => {
@@ -14,12 +14,19 @@ class LogTime extends React.Component {
     })
   };
 
-  render () {
+  updateDateAndSubmit = (event) => {
+    this.setState({
+      date: `${Date.now}`
+    })
+    this.props.logTime(event, this.state);
+  }
+
+  render() {
     return (
       <>
         {/* MODAL BUTTON */}
         <button className="btn-primary btn-sm btn btn-logTime" type="button"
-        id="btn-logTime" data-toggle="modal" data-target={`#addLogTime-${this.props.skillDetail._id}`}>LOG TIME</button>
+          id="btn-logTime" data-toggle="modal" data-target={`#addLogTime-${this.props.skillDetail._id}`}>LOG TIME</button>
 
         {/* MODAL BODY */}
         <div className="modal fade" id={`addLogTime-${this.props.skillDetail._id}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -28,10 +35,10 @@ class LogTime extends React.Component {
               <div className="modal-header">
                 <h5 className="modal-title" id="exampleModalLabel">Log Time for {this.props.skillDetail.name}</h5>
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+                  <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              
+
               <div className="modal-body">
                 <form>
                   <div className="form-group">
@@ -58,7 +65,7 @@ class LogTime extends React.Component {
                       required
                     />
                   </div>
-                  <button data-dismiss="modal"onClick={(event) => this.props.logTime(event, this.state)} className="btn btn-primary float-right" type="submit">
+                  <button data-dismiss="modal" onClick={(event) => this.updateDateAndSubmit(event)} className="btn btn-primary float-right" type="submit">
                     Log Time
                   </button>
                 </form>

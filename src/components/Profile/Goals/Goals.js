@@ -24,7 +24,7 @@ class Goals extends React.Component {
 
     return goals.map(goal => {
       // Filter by Frequency of Daily
-      if (goal.frequency === "Daily") {
+      if (goal && goal.frequency === "Daily") {
         let completed = false;
         if (goal.skill && goal.skill.logTimes.length) {
           goal.skill.logTimes.forEach(logTime => {
@@ -45,7 +45,7 @@ class Goals extends React.Component {
     // Go through array of goals set in state
     return goals.map(goal => {
       // Filter by Frequency of Weekly
-      if (goal.frequency === "Weekly") {
+      if (goal && goal.frequency === "Weekly") {
         let completed = false;
         if (goal.skill && goal.skill.logTimes.length) {
           // Go through each log time and see if it has been within the last week
@@ -72,8 +72,6 @@ class Goals extends React.Component {
   };
 
   render() {
-    const dailyGoals = this.displayDailyGoals(this.props.goals);
-    console.log(dailyGoals);
 
     return (
       <>
