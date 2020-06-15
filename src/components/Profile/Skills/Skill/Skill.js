@@ -9,13 +9,21 @@ function Skill(props) {
   const totalHoursFormatted = totalHours.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   const minutes = props.skillDetail.totalMinutes - (totalHours * 60);
 
+  const justOneHour = totalHours === 1;
+  const multipleHours = totalHours > 1;
+
   return (
     <>
       <div className="card card-skill">
         <div className="card-body card-body-skill">
           <Link to={skillLink}>
             <h5 className="card-title card-title-skill">{props.skillDetail.name}</h5>
-            <p className="card-text">{totalHoursFormatted} hours {minutes > 0 ? `${minutes} mins` : null}</p>
+            <p className="card-text">
+              {justOneHour && `${totalHoursFormatted} hour`}
+              {multipleHours && `${totalHoursFormatted} hours`}
+              {' '}
+              {minutes > 0 && `${minutes} mins`}
+            </p>
           </Link>
           <LogTime skillDetail={props.skillDetail} logTime={props.logTime} />
         </div>

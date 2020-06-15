@@ -11,13 +11,21 @@ const Goal = (props) => {
   const totalHours = Math.floor(props.goalDetail.duration / 60);
   const minutes = props.goalDetail.duration - (totalHours * 60);
 
+  const justOneHour = totalHours === 1;
+  const multipleHours = totalHours > 1;
+
   return (
     <>
       <div className="card card-goal">
         <div className="card-body card-body-goal">
           <div className="card-header-goal">
             <h5 className="card-title card-title-goal">{props.goalDetail.skill.name}</h5>
-              <p className="card-text card-text-goal">{totalHours > 0 ? `${totalHours} hours` : null} {minutes > 0 ? `${minutes} mins` : null} </p>
+            <p className="card-text card-text-goal">
+              {justOneHour && `${totalHours} hour`}
+              {multipleHours && `${totalHours} hours`}
+              {' '}
+              {minutes > 0 && `${minutes} mins`}
+            </p>
           </div>
           <button className="btn btn-primary btn-sm btn-complete" onClick={(event) => props.logTime(event, logTime)}>COMPLETE</button>
         </div>
