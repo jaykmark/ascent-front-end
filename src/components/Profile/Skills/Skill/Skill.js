@@ -12,6 +12,9 @@ function Skill(props) {
   const justOneHour = totalHours === 1;
   const multipleHours = totalHours > 1;
 
+  const justOneMin = minutes === 1;
+  const multipleMins = minutes > 1;
+
   return (
     <>
       <div className="card card-skill">
@@ -22,7 +25,8 @@ function Skill(props) {
               {justOneHour && `${totalHoursFormatted} hour`}
               {multipleHours && `${totalHoursFormatted} hours`}
               {' '}
-              {minutes > 0 && `${minutes} mins`}
+              {justOneMin && `${minutes} min`}
+              {multipleMins && `${minutes} mins`}
             </p>
           </Link>
           <LogTime skillDetail={props.skillDetail} logTime={props.logTime} />

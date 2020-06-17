@@ -2,7 +2,11 @@ import React from 'react';
 
 import './Landing.css';
 
-function Landing() {
+function Landing({ currentUser, history }) {
+  if (currentUser) {
+    history.push('/profile');
+  }
+
   return (
     <div className="landing">
       <h1>TIME TO ASCEND</h1>

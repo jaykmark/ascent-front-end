@@ -9,10 +9,10 @@ import SkillDetailContainer from '../containers/SkillDetailContainer';
 
 
 
-function Routes({ setCurrentUser, history }) {
+function Routes({ currentUser, setCurrentUser, history }) {
   return (
     <Switch>
-      <Route exact path="/" component={Landing} />
+      <Route exact path="/" render={() => <Landing currentUser={currentUser} history={history} />} />
       <Route path="/login" render={() => <Login setCurrentUser={setCurrentUser} history={history} />} />
       <Route path="/register" render={() => <Register setCurrentUser={setCurrentUser} history={history} />} />
       <Route path="/profile" component={ProfileContainer} />

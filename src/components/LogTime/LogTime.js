@@ -1,11 +1,28 @@
 import React from 'react';
 import './LogTime.css';
 
+// Get current date and set 
+const now = new Date();
+const year = now.getFullYear().toString();
+let month = parseInt(now.getMonth() + 1).toString();
+let date = now.getDate().toString();
+
+// Add leading zeroes to single digits
+if (month.length === 1) {
+  month = `0${month}`;
+}
+
+if (date.length === 1) {
+  date = `0${date}`;
+}
+
+const nowFormattedDate = `${year}-${month}-${date}`;
+
 class LogTime extends React.Component {
   state = {
     skill: this.props.skillDetail._id,
     minutes: '',
-    date: '',
+    date: nowFormattedDate,
   };
 
   handleChange = (event) => {
@@ -13,13 +30,6 @@ class LogTime extends React.Component {
       [event.target.name]: event.target.value,
     })
   };
-
-  updateDateAndSubmit = (event) => {
-    this.setState({
-      date: `${Date.now}`
-    })
-    this.props.logTime(event, this.state);
-  }
 
   render() {
     return (
@@ -62,10 +72,9 @@ class LogTime extends React.Component {
                       id="date"
                       name="date"
                       value={this.state.date}
-                      required
                     />
                   </div>
-                  <button data-dismiss="modal" onClick={(event) => this.updateDateAndSubmit(event)} className="btn btn-primary float-right" type="submit">
+                  <button data-dismiss="modal" onClick={(event) => this.props.logTime(event, this.state)} className="btn btn-primary float-right" type="submit">
                     Log Time
                   </button>
                 </form>
