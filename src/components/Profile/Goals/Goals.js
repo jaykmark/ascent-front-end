@@ -72,7 +72,7 @@ class Goals extends React.Component {
   };
 
   render() {
-
+    const { goals } = this.props;
     return (
       <>
         <div className="goalsList">
